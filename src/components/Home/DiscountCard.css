@@ -1,0 +1,14 @@
+.discount {
+    height: 130px;
+    border-radius: 8px;
+    background: #0BBEF2;
+}
+.discount .discount-title{
+    color: #fff;
+    font-size: 30px;
+}
+
+.dicount-img {
+    max-height: 130px;
+    max-width: 80%;
+}
