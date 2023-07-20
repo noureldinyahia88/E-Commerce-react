@@ -11,8 +11,8 @@ import Appliances from '../../images/Appliances.png'
 
 const HomePageCategory = () => {
     return (
-    <div className='container'>
-        <SubTitle title="Category" btnTitle="More"/>
+    <div className='container category-container'>
+        <SubTitle title="Category" btnTitle="More" pathText="/allCategory"/>
         <div className='row container d-flex justify-content-between align-items-center my-5 mb-5'>
             <CategoryCard  className="image-category" img={Fashion} title="Fashion" background="#F4DBA4" />
             <CategoryCard  className="image-category" img={Kids} title="Kids" background="#F4DBA4" />

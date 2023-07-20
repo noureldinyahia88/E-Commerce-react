@@ -1,8 +1,26 @@
 .footer{
-    background-color: #3C4862;
+    background: linear-gradient(to left, rgba(114, 155, 121, 1), rgba(71, 91, 99, 1));
     color: #fff;
     height: 100%;
+    width: 100%;
+    padding: 20px;
 }
-.footer-shroot , .footer-phone{
-    color: #fff;
+
+
+.footer-shroot {
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 18px;
+    cursor: pointer;
+}
+.footer-head {
+    
+}
+
+.icon{
+    cursor: pointer;
 }

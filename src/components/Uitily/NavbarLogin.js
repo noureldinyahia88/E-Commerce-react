@@ -1,18 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import { Container, FormControl, Nav } from 'react-bootstrap';
+import './navbar.css';
 
-import Logo from '../../images/Store.2.svg'
-import login from '../../images/login.png'
-import cart from '../../images/cart.png'
+import Logo from '../../images/logo1.svg';
+import login from '../../images/user 1.svg';
+import cart from '../../images/shopping-bag 1.svg';
 
 const NavbarLogin = () => {
+
+    const [bg, setBg] = useState('transparent')
+
+    useEffect(()=> {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [])
+
+    function handleScroll() {
+        const scrollTop = window.pageYOffset;
+
+        if(scrollTop > 50) {
+            setBg('rgba(212, 218, 208, 1)');
+        } else {
+            setBg('transparent')
+        }
+    }
+
     return (
-    <Navbar className="sticky-top" bg="dark" variant="dark" expand="sm">
+        <Navbar className="sticky-top navbar" variant="dark" expand="sm" style={{ backgroundColor: bg }}>
             <Container>
                 <Navbar.Brand>
-                    <a href='/'>
-                    <img src={Logo} className='logo'  alt=''/>
+                    <a href="/">
+                        <img src={Logo} className="logo" alt="" />
                     </a>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -20,26 +40,23 @@ const NavbarLogin = () => {
                     <FormControl
                         type="search"
                         placeholder="What are you looking for?"
-                        className="me-2 w-100"
+                        className="search me-2 w-100"
                         aria-label="Search"
                     />
                     <Nav className="me-auto">
-                        <Nav.Link href='/login'
-                            className="nav-style nav-text d-flex mt-3 justify-content-center">
-                            <p style={{ color: "white" }}>Log in</p>
+                        <Nav.Link href="/login" className="nav-style nav-text d-flex mt-3 justify-content-center">
+                            <p style={{ color: "#272727" }}>Log in</p>
                             <img src={login} className="login-img" alt="sfvs" />
                         </Nav.Link>
-                        <Nav.Link href='/cart'
-                            className="nav-style nav-text d-flex mt-3 justify-content-center"
-                            style={{ color: "white" }}>
-                            <p style={{ color: "white" }}>Cart</p>
+                        <Nav.Link href="/cart" className="nav-style nav-text d-flex mt-3 justify-content-center" style={{ color: "white" }}>
+                            <p style={{ color: "#272727" }}>Cart</p>
                             <img src={cart} className="login-img" alt="sfvs" />
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-  )
-}
+    );
+};
 
-export default NavbarLogin
+export default NavbarLogin;

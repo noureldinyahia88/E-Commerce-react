@@ -1,0 +1,10 @@
+.brand-bg{
+    background-color: rgba(212, 218, 208, 1);
+    padding: 20px;
+    border-radius: 15px;
+}
+.admin-content{
+    color: #272727;
+    font-weight: bold;
+    font-size: 30px;
+}

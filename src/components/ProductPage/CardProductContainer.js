@@ -2,10 +2,10 @@ import React from 'react';
 import SubTitle from '../Uitily/SubTitle';
 import ProductCard from './ProductCard';
 
-const CardProductContainer = ({ title, btntitle}) => {
+const CardProductContainer = ({ title,btntitle,pathText}) => {
   return (
     <div className='container'>
-      <SubTitle  title={title} btnTitle={btntitle} />
+      <SubTitle  title={title} btnTitle={btntitle}  pathText={pathText}/>
       <div className='row container d-flex justify-content-between align-items-center'>
         <ProductCard />
         <ProductCard />

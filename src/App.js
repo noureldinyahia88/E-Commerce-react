@@ -4,6 +4,12 @@ import NavbarLogin from './components/Uitily/NavbarLogin'
 import Footer from './components/Uitily/Footer'
 import LoginPage from "./pages/Auth/LoginPage";
 import Register from "./pages/Auth/Register";
+import Categoryallpage from "./components/categorypage/Categoryallpage";
+import AllBrandPage from "./pages/brands/AllBrandPage";
+import ShopProducts from "./pages/Products/ShopProducts";
+
+
+
 
 function App() {
   return (
@@ -14,6 +20,9 @@ function App() {
       <Route index element={<HomePage/>} />
       <Route path="/login" element={<LoginPage/>} />
       <Route path="/register" element={<Register />} />
+      <Route path="/allCategory" element={<Categoryallpage />} />
+      <Route path="/allbrand" element={<AllBrandPage />} />
+      <Route path="/products" element={<ShopProducts/>} />
       </Routes>
       </BrowserRouter>
       <Footer />

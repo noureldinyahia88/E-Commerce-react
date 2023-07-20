@@ -1,32 +1,36 @@
-body{
-    overflow: hidden;
-}
+
 .row .welcome-title{
-    color: #324162;
+  background: linear-gradient(to left, rgba(114, 155, 121, 1), rgba(71, 91, 99, 1));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
     text-align: center;
 }
+
 .row label{
-    color: #324162;
+    color: #272727;
 }
 
 .text-link{
-    color: #0BBEF2;
+    color: #729B79;
 }
 .user-input {
     box-sizing: border-box;
     height: 37px;
     width: 375px;
     border: none;
-    border-bottom: 2px solid #0bbcf28c;
+    border-bottom: 2px solid #729B79;
     border-radius: 4px;
     padding:15px;
+    background-color: transparent;
 }
 .user-input:focus{
     outline: none;
 }
   .title-login {
     color: #555550;
-    font-family: Almarai;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 30px;
     font-weight: 800;
     letter-spacing: 0;
@@ -38,9 +42,9 @@ body{
     width: 374px;
     border-radius: 9px;
     border: none;
-    color: white;
-    background-color: rgb(33 37 41);
+    color: #ffffffff;
+    background-color: #729B79;
   }
   .btn-login:hover {
-    color: rgb(206, 204, 204);
+    color: #ffffff;
   }

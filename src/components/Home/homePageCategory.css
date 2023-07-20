@@ -1,7 +1,6 @@
-/* .row{
-    margin-left: 0;
-    margin-right: 0;
-} */
+.category-container{
+    margin-bottom: 100px;
+}
 .row .image-category{
     max-width: 100%;
     width: 15%;

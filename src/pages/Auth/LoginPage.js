@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 const LoginPage = () => {
     return (
-        <Container style={{ minHeight: "80vh" }}>
+        <Container style={{ minHeight: "71vh" }}>
         <Row className="row py-5 d-flex justify-content-center ">
             <Col sm="12" className="d-flex flex-column ">
                 <h2 className='welcome-title'>Welcome back!</h2>

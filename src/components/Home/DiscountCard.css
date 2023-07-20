@@ -1,10 +1,14 @@
 .discount {
     height: 130px;
     border-radius: 8px;
-    background: #0BBEF2;
+    background: linear-gradient(to left, rgba(114, 155, 121, 1), rgba(71, 91, 99, 1));
 }
 .discount .discount-title{
     color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
     font-size: 30px;
 }
 
