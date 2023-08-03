@@ -7,6 +7,8 @@ import Register from "./pages/Auth/Register";
 import Categoryallpage from "./components/categorypage/Categoryallpage";
 import AllBrandPage from "./pages/brands/AllBrandPage";
 import ShopProducts from "./pages/Products/ShopProducts";
+import ProductDetailsPage from "./pages/Products/ProductDetailsPage";
+import CartPage from "./pages/Cart/CartPage";
 
 
 
@@ -23,6 +25,8 @@ function App() {
       <Route path="/allCategory" element={<Categoryallpage />} />
       <Route path="/allbrand" element={<AllBrandPage />} />
       <Route path="/products" element={<ShopProducts/>} />
+      <Route path="/products/:id" element={<ProductDetailsPage />} />
+      <Route path="/cart" element={<CartPage /> } />
       </Routes>
       </BrowserRouter>
       <Footer />

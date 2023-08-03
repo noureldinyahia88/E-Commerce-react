@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import prod1 from "../../images/prod1.png";
-import favoff from "../../images/fav-off.png";
+import faroff from "../../images/fav-off.png";
 import rate from "../../images/rate.png";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 const ProductCard = () => {
   return (
@@ -19,12 +20,12 @@ const ProductCard = () => {
           boxShadow: "0 2px 2px 0 rgba(151,151,151,0.5)",
         }}
       >
-        {/* <Link to="/products/:id" style={{ textDecoration: 'none' }}> */}
+        <Link to="/products/:id" style={{ textDecoration: 'none' }}>
           <Card.Img style={{ height: "228px", width: "100%" }} src={prod1} />
-        {/* </Link> */}
+        </Link>
         <div className="d-flex justify-content-end mx-2">
           <img
-            src={favoff}
+            src={faroff}
             alt=""
             className="text-center"
             style={{
