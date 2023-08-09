@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&family=Poppins:wght@300;500&family=Rubik:wght@300;400;500;600&display=swap');
 body {
+  height: 100%;
   margin: 0;
   font-family: 'Montserrat', sans-serif !important;
 font-family: 'Poppins', sans-serif !important;
@@ -287,38 +288,36 @@ font-family: 'Rubik', sans-serif !important;
 
 /* admin style  */
 .sidebar {
-  height: 660px;
+  height: 600px;
   width: 100%;
   border-radius: 21px;
   background-color: #ffffff;
 }
 
 .admin-side-text {
-  color: #272727;
-  font-family: "Almarai";
+  color: #729B79;
+  font-family: 'Montserrat', sans-serif ;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 0;
   line-height: 20px;
-  text-align: right;
   width: 100%;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .admin-side-text:hover {
-  background-color: #272727;
+  background-color: #729B79;
   color: white;
   font-size: 14px;
 }
 .admin-content-text {
   color: #555550;
-  font-family: Almarai;
+  font-family: 'Montserrat', sans-serif;
   font-size: 21px;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 28px;
-  text-align: right;
 }
 .item-delete-edit {
   color: #979797;
@@ -326,7 +325,6 @@ font-family: 'Rubik', sans-serif !important;
   font-size: 16px;
   letter-spacing: 0;
   line-height: 30px;
-  text-align: right;
   cursor: pointer;
 }
 
@@ -336,7 +334,6 @@ font-family: 'Rubik', sans-serif !important;
   font-size: 16px;
   letter-spacing: 0;
   line-height: 20px;
-  text-align: right;
 }
 .input-form {
   height: 37px;
@@ -359,27 +356,7 @@ font-family: 'Rubik', sans-serif !important;
   border: 1px solid #979797;
   border-radius: 8px;
 }
-.btn-save {
-  border: none;
-  color: white;
-  height: 46px;
-  width: 150px;
-  border-radius: 9px;
-  background-color: #272727;
-}
-.btn-save:hover {
-  color: rgb(164, 164, 164);
-}
-.btn-a {
-  border: none;
-  color: white;
-  height: 45px;
-  border-radius: 9px;
-  background-color: #272727;
-}
-.btn-a:hover {
-  color: rgb(164, 164, 164);
-}
+
 /* end admin  */
 
 /* rates  */

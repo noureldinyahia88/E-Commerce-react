@@ -1,0 +1,62 @@
+/* All Admin product Card */
+.title{
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+
+}
+.star{
+    width: 15px;
+}
+.price{
+    color: #729B79;
+    font-size: 16px;
+    font-weight: 500;
+}
+.currency{
+    color: #729B79;
+    font-size: 16px;
+    font-weight: 500;
+}
+.delete , .edit{
+    font-size: 16px;
+    color: #729B79;
+}
+
+/* All orders Page */
+.cart-body{
+    background-color: #fff;
+    border-radius: 15px;
+
+}
+.rate{
+    color: #f0cc00;
+    width: 100%;
+    
+}
+/* add brand page */
+.page-body{
+    height: 71vh;
+    background-color: #e4ebe0;
+}
+.btn-save {
+    border: none;
+    color: white;
+    height: 46px;
+    width: 150px;
+    border-radius: 9px;
+    background-color: #729B79;
+  }
+  .btn-save:hover {
+    color: #fff;
+  }
+  .btn-a {
+    border: none;
+    color: white;
+    height: 45px;
+    border-radius: 9px;
+    background-color: #272727;
+}
+.btn-a:hover {
+    color: rgb(164, 164, 164);
+}

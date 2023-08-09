@@ -8,7 +8,7 @@ import Pagination from '../../components/Uitily/Pagination'
 
 const ShopProducts = () => {
   return (
-    <div style={{minHeight: '71vh'}}>
+    <div>
         <CategoryHeader />
         <Container >
         <SearchContainerResult title='7558 products found' />
