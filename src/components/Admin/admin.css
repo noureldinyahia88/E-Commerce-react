@@ -46,11 +46,11 @@
     width: 150px;
     border-radius: 9px;
     background-color: #729B79;
-  }
-  .btn-save:hover {
+}
+.btn-save:hover {
     color: #fff;
-  }
-  .btn-a {
+}
+.btn-a {
     border: none;
     color: white;
     height: 45px;
@@ -59,4 +59,48 @@
 }
 .btn-a:hover {
     color: rgb(164, 164, 164);
+}
+
+/* add subcategory page */
+.input-form{
+    box-sizing: border-box;
+    height: 37px;
+    width: 375px;
+    border: none;
+    border-bottom: 2px solid #729B79;
+    border-radius: 4px;
+    padding:15px;
+    background-color: transparent;
+}
+.input-form:focus{
+    outline: none;
+}
+.select-input{
+    width: 375px;
+    height: 37px;
+    border: none;
+    border: 2px solid #729B79;
+    border-radius: 15px;
+    color: #555555;
+}
+.select-input:focus{
+    outline: none;
+}
+
+.select-input .option:hover, .select-input .option:checked{
+    background-color: #729B79;
+}
+
+/* add product page */
+.input-form-desc2{
+    box-sizing: border-box;
+    width: 375px;
+    border: 1px solid #729B79;
+    border-radius: 4px;
+    padding:15px;
+    background-color: transparent;
+}
+.input-form-desc2:focus{
+    outline: none;
+    border: 2px solid #729B79;
 }
