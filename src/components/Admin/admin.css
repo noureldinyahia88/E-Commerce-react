@@ -56,9 +56,11 @@
     width: 150px;
     border-radius: 9px;
     background-color: #729B79;
+    transition: 0.5s ease-in-out;
 }
 .btn-save:hover {
-    color: #fff;
+    background-color: #fff;
+    color: #729B79;
 }
 .btn-a {
     border: none;

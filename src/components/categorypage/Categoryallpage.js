@@ -11,7 +11,7 @@ const Categoryallpage = () => {
     const dispatch = useDispatch();
 
     useEffect(()=>{
-    dispatch(getAllCategory());
+    dispatch(getAllCategory(6));
     }, []);
 
     // to get data from redux
