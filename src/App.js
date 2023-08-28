@@ -18,6 +18,12 @@ import AdminAddBrandPage from "./pages/Admin/AdminAddBrandPage";
 import AdminAddCategoryPage from "./pages/Admin/AdminAddCategoryPage";
 import AdminAddSubCategoryPage from "./pages/Admin/AdminAddSubCategoryPage";
 import AdminAddProductsPage from "./pages/Admin/AdminAddProductsPage";
+import UserAllOrdersPage from "./pages/User/UserAllOrdersPage";
+import UserFavoriteProducPage from "./pages/User/UserFavoriteProducPage";
+import UserAllAddresPage from "./pages/User/UserAllAddresPage";
+import { UserEditAddressPage } from "./pages/User/UserEditAddressPage";
+import UserAddAddressPage from "./pages/User/UserAddAddressPage";
+import UserProfilePage from "./pages/User/UserProfilePage";
 
 
 
@@ -45,6 +51,12 @@ function App() {
       <Route path="/admin/addcategory" element={<AdminAddCategoryPage />}  />
       <Route path="/admin/addsubcategory" element={<AdminAddSubCategoryPage />} />
       <Route path="/admin/addproducts" element={<AdminAddProductsPage />} />
+      <Route path="/user/allorders" element={<UserAllOrdersPage />} />
+      <Route path="/user/favoriteproducts" element={<UserFavoriteProducPage />} />
+      <Route path="/user/addresses" element={<UserAllAddresPage />} />
+      <Route path="/user/add-address" element={<UserAddAddressPage />} />
+      <Route path="/user/edit-address" element={<UserEditAddressPage />} />
+      <Route path="/user/profile" element={<UserProfilePage />} />
       </Routes>
       </BrowserRouter>
       <Footer />

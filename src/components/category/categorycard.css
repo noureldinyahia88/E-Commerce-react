@@ -1,5 +1,9 @@
-
+.category-card-img{
+    max-width: 100%;
+    border-radius: 15px;
+}
 .category-card-text {
     font-size: 30px;
     font-weight: bold;
+    text-align: center;
 }

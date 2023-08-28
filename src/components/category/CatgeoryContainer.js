@@ -1,30 +1,33 @@
 import React from 'react'
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row, Spinner } from 'react-bootstrap'
 import CategoryCard from './CategoryCard';
+// import { useSelector } from 'react-redux';
 
 
-import laptop from "../../images/labtop.png";
-import Pagination from '../Uitily/Pagination';
 
 
-const CategoryContainer = () => {
+
+
+
+
+
+const CategoryContainer = ({data, loading}) => {
+
+
     
     return (
     <Container >
         <div className="admin-content-text mt-2 ">All Category</div>
             <Row className='my-2 d-flex justify-content-between'>
-                <CategoryCard title="Home" img={laptop}  />
-                <CategoryCard title="Home" img={laptop}  />
-                <CategoryCard title="Home" img={laptop}  />
-                <CategoryCard title="Home" img={laptop}  />
-                <CategoryCard title="Home" img={laptop} />
-                <CategoryCard title="Home" img={laptop} />
-                <CategoryCard title="Home" img={laptop} />
-                <CategoryCard title="Home" img={laptop} />
-                <CategoryCard title="Home" img={laptop}  />
-                <CategoryCard title="Home" img={laptop} />
-                <CategoryCard title="Home" img={laptop} />
-                <CategoryCard title="Home" img={laptop} />
+                {
+                    loading === false ? (
+                        data ? (
+                            data.map((item, index) => {
+                                return <CategoryCard title={item.title}  key={index} img={item.image} background='#fff'  />
+                            })
+                        ):<h2>No Category</h2>
+                    ): <div className="is_loading d-flex"><Spinner animation="grow" /> <h2>Loading</h2></div>
+                }
             </Row>
         </Container>
 )
