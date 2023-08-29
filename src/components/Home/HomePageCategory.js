@@ -6,24 +6,13 @@ import CategoryCard from '../category/CategoryCard'
 
 
 
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getAllCategory } from '../../redux/actions/categoryAction'
+
 import { Row, Spinner } from 'react-bootstrap'
+import HomeCategoryHook from '../../hook/category/HomeCategoryHook'
 
 const HomePageCategory = () => {
 
-    const dispatch = useDispatch();
-
-    useEffect(()=>{
-    dispatch(getAllCategory());
-    }, []);
-
-    const category = useSelector(state => state.allCategory.category)
-    const loading = useSelector(state => state.allCategory.loading)
-
-    console.log(category);
-    console.log(loading);
+    const [category, loading] = HomeCategoryHook()
 
     return (
     <div className='container category-container'>

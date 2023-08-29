@@ -1,83 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Col, Container, Row, Spinner } from 'react-bootstrap'
-import {useDispatch, useSelector} from 'react-redux'
-import {createCategory} from '../../redux/actions/categoryAction'
 import './admin.css'
 import '../../pages/Auth/auth.css'
-import avatar from '../../images/add.png'
-import { useEffect } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import AdminAddCategoryHook from '../../hook/category/AdminAddCategoryHook';
+
 // import axios from 'axios'
 
 
 const AdminAddCategory = () => {
 
-    const dispatch = useDispatch()
-    
-    const [img, setImg] = useState(avatar)
-    const [selectedFile, setSelectedImage] = useState(null)
-    const [name, setName] = useState('')
-    const [loading, setLoading] = useState(true)
-    const [pressed, setPressed] = useState(false)
+    const [img, name, loading, pressed, handelSubmit, onImageChange, onChangeName] = AdminAddCategoryHook()
 
-    const res = useSelector(state => state.allCategory.category)
-
-    // when image change save it
-    const onImageChange = (event) => {
-        if(event.target.files && event.target.files[0]){
-            setImg(URL.createObjectURL(event.target.files[0]))
-            setSelectedImage(event.target.files[0])
-        }
-    }
-    // save data in database
-    const handelSubmit = async (event) => {
-        event.preventDefault();
-
-        if(name === "" || selectedFile === null){
-            notify("Please Enter","warm")
-            return
-        }
-
-        const formData = new FormData();
-        formData.append("name", name)
-        formData.append("image", selectedFile)
-
-
-        setLoading(true)
-        setPressed(true)
-        await dispatch(createCategory(formData))
-        setLoading(false)
-    }
-
-    useEffect(() => {
-
-        if(loading === false){
-            console.log("done");
-            setImg(avatar)
-            setName('')
-            setSelectedImage(null)
-            setLoading(true)
-            setTimeout(()=> setPressed(false), 1000)
-
-            if(res.state === 201){
-                notify("Success","success")
-            } else {
-                notify("Failed","error")
-            }
-
-        }
-    },[loading])
-
-
-    const notify = (msg, type) => {
-        if(type === "warm")
-            toast.warn(msg)
-        else if(type === "success")
-            toast.success(msg)
-        else if( type === "error")
-            toast.error(msg)
-    };
 
     return (
         <div className="page-body">
@@ -97,7 +31,7 @@ const AdminAddCategory = () => {
                     type="text"
                     className="user-input d-block mt-3 px-3"
                     placeholder="Category Name"
-                    onChange={(e)=> setName(e.target.value)}
+                    onChange={onChangeName}
                     /> 
             </Col>
             
