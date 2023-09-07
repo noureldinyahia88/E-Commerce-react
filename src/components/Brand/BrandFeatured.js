@@ -3,24 +3,33 @@ import BrandCard from './BrandCard'
 import SubTitle from '../Uitily/SubTitle'
 import './brandFeatured.css'
 
-import brand1 from '../../images/brand1.png'
-import brand2 from '../../images/brand2.png'
-import brand3 from '../../images/brand3.png'
+
+import { Container, Row, Spinner } from 'react-bootstrap'
+import HomeCategoryHook from '../../hook/brand/HomeBrandHook'
 
 
 
 
-const BrandFeatured = ({ title, btntitle}) => {
+const BrandFeatured = ({ title, btntitle, data}) => {
+
+    const [brand, loading] = HomeCategoryHook()
+
     return (
-    <div className='container brand-bg'>
+    <Container className="brand-bg">
     <SubTitle  title={title} btnTitle={btntitle} pathText='/allbrand' />
-    <div className='row container d-flex justify-content-between align-items-center'>
-        <BrandCard img={brand1} />
-        <BrandCard img={brand2} />
-        <BrandCard img={brand3} />
-        <BrandCard img={brand1} />
-    </div>
-    </div>
+
+    <Row className='row container d-flex justify-content-between align-items-center'>
+        {
+                    loading === false ? (
+                        brand.data ? (
+                            brand.data.slice(0, 5).map((item, index) => {
+                                return <BrandCard key={index} img={item.image}  />
+                            })
+                        ):<h2>No Category</h2>
+                    ): <div className="is_loading d-flex"><Spinner animation="grow" /> <h2>Loading</h2></div>
+                }
+    </Row>
+    </Container>
 )
 }
 

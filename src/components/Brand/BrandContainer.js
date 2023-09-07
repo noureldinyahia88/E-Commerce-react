@@ -1,24 +1,28 @@
 import React from 'react'
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row, Spinner } from 'react-bootstrap'
 
 import BrandCard from './BrandCard';
 
 
-import brand1 from '../../images/brand1.png'
-import brand2 from '../../images/brand2.png'
-import brand3 from '../../images/brand3.png'
 
+const BrandContainer = ({data, loading}) => {
 
-const BrandContainer = () => {
+    
+
     return (
         <Container >
         <div className="admin-content text-center mt-2 mb-5" style={{ minHeight: "100%" }}>All Brands</div>
-        <div className='row container d-flex justify-content-between align-items-center'>
-        <BrandCard img={brand1} />
-        <BrandCard img={brand2} />
-        <BrandCard img={brand3} />
-        <BrandCard img={brand1} />
-    </div>
+        <Row className='row container d-flex justify-content-between align-items-center'>
+        {
+                    loading === false ? (
+                        data ? (
+                            data.map((item, index) => {
+                                return <BrandCard  key={index} img={item.image}  />
+                            })
+                        ):<h2>No Category</h2>
+                    ): <div className="is_loading d-flex"><Spinner animation="grow" /> <h2>Loading</h2></div>
+                }
+        </Row>
         </Container>
 )
 }

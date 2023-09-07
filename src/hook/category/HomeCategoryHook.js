@@ -15,8 +15,7 @@ const HomeCategoryHook = () => {
     // get last loading state from redux
     const loading = useSelector(state => state.allCategory.loading)
 
-    console.log(category);
-    console.log(loading);
+
 
     return [category, loading]
 }

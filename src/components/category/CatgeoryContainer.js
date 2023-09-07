@@ -23,7 +23,7 @@ const CategoryContainer = ({data, loading}) => {
                     loading === false ? (
                         data ? (
                             data.map((item, index) => {
-                                return <CategoryCard title={item.title}  key={index} img={item.image} background='#fff'  />
+                                return <CategoryCard title={item.title}  key={index} img={item.image} />
                             })
                         ):<h2>No Category</h2>
                     ): <div className="is_loading d-flex"><Spinner animation="grow" /> <h2>Loading</h2></div>

@@ -1,14 +1,13 @@
 import  { useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {createCategory} from '../../redux/actions/categoryAction'
-import '../../pages/Auth/auth.css'
-import avatar from '../../images/add.png'
 import { useEffect } from 'react'
 import notify from '../../hook/useToastify'
 
+import '../../pages/Auth/auth.css'
+import avatar from '../../images/add.png'
+import { createBrand } from '../../redux/actions/BrandAction'
 
-const AdminAddCategoryHook = () => {
-
+const AdminAddBrandHook = () => {
     const dispatch = useDispatch()
     
     const [img, setImg] = useState(avatar)
@@ -17,7 +16,7 @@ const AdminAddCategoryHook = () => {
     const [loading, setLoading] = useState(true)
     const [pressed, setPressed] = useState(false)
 
-    const res = useSelector(state => state.allCategory.category)
+    const res = useSelector(state => state.allBrand.brand)
 
     // when image change save it
     const onImageChange = (event) => {
@@ -47,7 +46,7 @@ const AdminAddCategoryHook = () => {
 
         setLoading(true)
         setPressed(true)
-        await dispatch(createCategory(formData))
+        await dispatch(createBrand(formData))
         setLoading(false)
     }
 
@@ -73,4 +72,4 @@ const AdminAddCategoryHook = () => {
     return [img, name, loading, pressed, handelSubmit, onImageChange, onChangeName]
 }
 
-export default AdminAddCategoryHook
+export default AdminAddBrandHook
