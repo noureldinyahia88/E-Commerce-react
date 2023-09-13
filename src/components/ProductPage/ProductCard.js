@@ -4,7 +4,7 @@ import prod1 from "../../images/prod1.png";
 import faroff from "../../images/fav-off.png";
 import rate from "../../images/rate.png";
 import { Link } from 'react-router-dom';
-
+import './productsDetails.css'
 
 const ProductCard = () => {
   return (
@@ -13,11 +13,11 @@ const ProductCard = () => {
         className="my-5"
         style={{
           width: "100%",
-          height: "345px",
+          height: "360px",
           borderRadius: "8px",
           border: "none",
           backgroundColor: "#FFFFFF",
-          boxShadow: "0 2px 2px 0 rgba(151,151,151,0.5)",
+          boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.04)",
         }}
       >
         <Link to="/products/:id" style={{ textDecoration: 'none' }}>
@@ -41,7 +41,11 @@ const ProductCard = () => {
             </div>
           </Card.Title>
           <Card.Text>
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between flex-column">
+              <div className="d-flex">
+                <div className="card-price">$1,440.00</div>
+              </div>
+            </div>
               <div className="d-flex">
                 <img
                   className=""
@@ -52,11 +56,6 @@ const ProductCard = () => {
                 />
                 <div className="card-rate mx-2">4.5</div>
               </div>
-              <div className="d-flex">
-                <div className="card-price">880</div>
-                <div className="card-currency mx-1">usd</div>
-              </div>
-            </div>
           </Card.Text>
         </Card.Body>
       </Card>

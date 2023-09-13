@@ -24,6 +24,7 @@ import UserAllAddresPage from "./pages/User/UserAllAddresPage";
 import { UserEditAddressPage } from "./pages/User/UserEditAddressPage";
 import UserAddAddressPage from "./pages/User/UserAddAddressPage";
 import UserProfilePage from "./pages/User/UserProfilePage";
+import MiniNav from "./components/Uitily/MiniNav";
 
 
 
@@ -31,6 +32,7 @@ import UserProfilePage from "./pages/User/UserProfilePage";
 function App() {
   return (
     <div className="font">
+      <MiniNav />
       <NavbarLogin />
       <BrowserRouter>
       <Routes>

@@ -15,12 +15,12 @@ const useInsertDataWithImage = async (url, params) => {
     }
 }
 
-const useInsetData = async (url, params) => {
+const useInsertData = async (url, params) => {
     const res = await baseURL.post(url, params)
 
     return res.data
 }
 
-export  {useInsetData, useInsertDataWithImage}
+export  {useInsertData, useInsertDataWithImage}
 
 

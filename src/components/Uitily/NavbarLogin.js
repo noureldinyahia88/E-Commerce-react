@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import { Container, FormControl, Nav } from 'react-bootstrap';
+
 import './navbar.css';
 
-import Logo from '../../images/logo1.svg';
+import Logo from '../../images/ss-logo-00.svg';
 import login from '../../images/user 1.svg';
 import cart from '../../images/shopping-bag 1.svg';
 
@@ -21,7 +22,7 @@ const NavbarLogin = () => {
         const scrollTop = window.pageYOffset;
 
         if(scrollTop > 50) {
-            setBg('rgba(212, 218, 208, 1)');
+            setBg('#fff');
         } else {
             setBg('transparent')
         }
@@ -45,11 +46,11 @@ const NavbarLogin = () => {
                     />
                     <Nav className="me-auto">
                         <Nav.Link href="/login" className="nav-style nav-text d-flex mt-3 justify-content-center">
-                            <p style={{ color: "#272727" }}>Log in</p>
+                            <p className="p-nav" >Login</p>
                             <img src={login} className="login-img" alt="sfvs" />
                         </Nav.Link>
                         <Nav.Link href="/cart" className="nav-style nav-text d-flex mt-3 justify-content-center" style={{ color: "white" }}>
-                            <p style={{ color: "#272727" }}>Cart</p>
+                            <p className="p-nav" >Cart</p>
                             <img src={cart} className="login-img" alt="sfvs" />
                         </Nav.Link>
                     </Nav>
