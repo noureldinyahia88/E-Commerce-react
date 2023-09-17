@@ -22,7 +22,6 @@ const AllBrandPageHook = () => {
     // when press Pagination
     const getPage = (page) => {
         dispatch(getAllBrandPage(page))
-        console.log(page);
     }
         return [brand, loading, pageCount, getPage]
 }

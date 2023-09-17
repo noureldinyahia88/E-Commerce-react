@@ -12,17 +12,17 @@ const brandReducer = (state = initial, action) => {
             return {
                 ...state,
                 brand: action.payload,
-                loading: false
+                loading: false,
             }
             case CREATE_BRAND:
                 return {
                     brand:action.payload,
-                    loading:false
+                    loading:false,
                 }
             case GET_ERROR : return {
                 loading: true,
                 // display to the user that there are Error
-                brand: action.payload
+                brand: action.payload,
             }
             default:
                 return state;

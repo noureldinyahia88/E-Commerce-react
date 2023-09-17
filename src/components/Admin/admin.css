@@ -1,13 +1,73 @@
 /* sideBar */
-.side-text{
-    color: #729B79;
-    transition: 0.3s ease;
+.sidebar {
+    height: 600px;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+}
+
+.side-text {
+    color: #757575;
     font-family: 'Montserrat', sans-serif ;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 20px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s;
 }
-.side-text:hover{
-    background-color: #729B79;
-    color: #fff;
+
+.side-text:hover {
+    background-color: #67ad5c;
+    color: white;
+    font-size: 14px;
+  }
+  .admin-content-text {
+    color: #555550;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 28px;
 }
+.item-delete-edit {
+    color: #979797;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.text-form {
+    color: #979797;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+.input-form {
+    height: 37px;
+    width: 100%;
+    border: 1px solid #979797;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.input-form-area {
+    width: 100%;
+    border: 1px solid #979797;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.select {
+    box-sizing: border-box;
+    height: 40px;
+    color: #979797;
+    width: 100%;
+    border: 1px solid #979797;
+    border-radius: 8px;
+}
+
 /* All Admin product Card */
 .title{
     font-size: 16px;
@@ -19,18 +79,18 @@
     width: 15px;
 }
 .price{
-    color: #729B79;
+    color: #67ad5c;
     font-size: 16px;
     font-weight: 500;
 }
 .currency{
-    color: #729B79;
+    color: #67ad5c;
     font-size: 16px;
     font-weight: 500;
 }
 .delete , .edit{
     font-size: 16px;
-    color: #729B79;
+    color: #67ad5c;
 }
 
 /* All orders Page */
@@ -46,8 +106,8 @@
 }
 /* add brand page */
 .page-body{
-    height: 71vh;
-    background-color: #e4ebe0;
+    padding: 20px;
+    background-color: #fff;
 }
 .btn-save {
     border: none;
@@ -55,12 +115,12 @@
     height: 46px;
     width: 150px;
     border-radius: 9px;
-    background-color: #729B79;
-    transition: 0.5s ease-in-out;
+    background-color: #67ad5c;
+    transition: 0.3s ease-in-out;
 }
 .btn-save:hover {
-    background-color: #fff;
-    color: #729B79;
+    background-color: #d7ead4;
+
 }
 .btn-a {
     border: none;
@@ -79,40 +139,42 @@
     height: 37px;
     width: 375px;
     border: none;
-    border-bottom: 2px solid #729B79;
+    border-bottom: 2px solid #dedede;
     border-radius: 4px;
     padding:15px;
     background-color: transparent;
+    transition: all .3s;
 }
 .input-form:focus{
     outline: none;
+    background-color: #f4f4f4;
 }
 .select-input{
     width: 375px;
     height: 37px;
     border: none;
-    border: 2px solid #729B79;
-    border-radius: 15px;
+    border: 2px solid #dedede;
     color: #555555;
+    cursor: pointer;
 }
 .select-input:focus{
     outline: none;
 }
 
 .select-input .option:hover, .select-input .option:checked{
-    background-color: #729B79;
+    background-color: #67ad5c;
 }
 
 /* add product page */
 .input-form-desc2{
     box-sizing: border-box;
     width: 375px;
-    border: 1px solid #729B79;
+    border: 1px solid #dedede;
     border-radius: 4px;
     padding:15px;
     background-color: transparent;
 }
 .input-form-desc2:focus{
     outline: none;
-    border: 2px solid #729B79;
+    border: 2px solid #67ad5c;
 }

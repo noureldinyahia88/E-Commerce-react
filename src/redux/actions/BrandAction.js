@@ -8,7 +8,6 @@ export const getAllBrand = (limit) => async (dispatch) => {
         
         const response = await useGetData(`/api/v1/brands?limit=${limit}`)
 
-        console.log(response);
         dispatch ({
             type: GET_ALL_BRAND,
             payload: response,
@@ -27,7 +26,6 @@ export const getAllBrandPage = (page) => async (dispatch) => {
         
         const response = await useGetData(`/api/v1/brands?limit=6&page=${page}`)
 
-        console.log(response);
         dispatch ({
             type: GET_ALL_BRAND,
             payload: response,
