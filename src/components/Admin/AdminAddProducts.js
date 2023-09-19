@@ -1,78 +1,15 @@
-import React, { useState, useEffect } from 'react'
 import Multiselect from 'multiselect-react-dropdown';
 import { Col, Row } from 'react-bootstrap';
-import avatar from '../../images/add.png'
-import add from '../../images/addPlus.png'
+import add from '../../images/addPlus.png';
 import MultiImageInput from 'react-multiple-image-input';
-import { useDispatch, useSelector } from 'react-redux'
-import { getAllCategory } from '../../redux/actions/categoryAction'
-import './admin.css'
-import { getAllBrand } from '../../redux/actions/BrandAction';
-import { CompactPicker } from 'react-color'
-
-
+import './admin.css';
+import { ToastContainer } from 'react-toastify';
+import AddProductHook from '../../hook/product/AddProductHook';
+import { CompactPicker } from 'react-color';
 
 const AdminAddProducts = () => {
 
-    const dispatch = useDispatch();
-
-    useEffect(()=>{
-        
-        dispatch(getAllCategory());
-        dispatch(getAllBrand());
-        }, []);
-
-        // to get category from redux
-    const category = useSelector(state => state.allCategory.category)
-    // to get brand from redux
-    const brand = useSelector(state => state.allBrand.brand)
-
-    
-    const onSelect = () => {
-        
-    }
-    const onRemove = () => {
-        
-    }
-    const onSelectCategory = (e) => {
-        setSubCatID(e.target.value)
-    }
-    const onSelectBrand = (e) => {
-        setBrandId(e.target.value)
-    }
-    const options = [
-        { name: "The first category", id: 1 },
-        { name: "The second category", id: 2 },
-    ];
-    // value images products
-    const [images, setImages] = useState([]);
-    // values State
-    const [prodName, setProdName] = useState('');
-    const [prodDescription, setProdDescription] = useState('');
-    const [priceBefore, setPriceBefore] = useState(0);
-    const [priceAfter, setPriceAfter] = useState(0);
-    const [qty, setQty] = useState(0);
-    const [catID, setCatID] = useState('');
-    const [brandID, setBrandId] = useState('');
-    const [subCatID, setSubCatID] = useState([]);
-    const [selectedSubID, setSelectedSubID] = useState([]);
-
-    // hide and show compactPicker
-    const [showColor, setShowColor] = useState(false)
-
-    // store pick colors
-    const [colors, setPickColor] = useState([])
-
-    const handelChangeComplete = (color) => {
-        setPickColor([...colors, color.hex])
-        setShowColor(!showColor)
-    }
-    // remove color
-    const removeColor = (color) => {
-        const newColor = colors.filter((e) => e !== color)
-        setPickColor(newColor)
-    }
-    
+        const  [onChangeColor,onChangeQty,onChangePriceBefore,onChangePriceAfter, onChangeDecProd,onChangeNameProd, showColor, category, brand, priceAfter, images, setImages, onSelect, onRemove, options, handelChangeComplete, removeColor, onSelectCategory, handelSubmit, onSelectBrand, colors, priceBefore, qty,prodDescription, prodName] = AddProductHook()
 
     return (
         <div>
@@ -97,7 +34,7 @@ const AdminAddProducts = () => {
                     className="input-form d-block mt-3 px-3"
                     placeholder="Product name"
                     value={prodName}
-                    onChange={(e)=>setProdName(e.target.value)}
+                    onChange={onChangeNameProd}
                 />
                 <textarea
                     className="input-form-desc2 p-2 mt-3"
@@ -105,28 +42,28 @@ const AdminAddProducts = () => {
                     cols="50"
                     placeholder="Product description"
                     value={prodDescription}
-                    onChange={(e)=>setProdDescription(e.target.value)}
+                    onChange={onChangeDecProd}
                 />
                 <input
                     type="number"
                     className="input-form d-block mt-3 px-3"
                     placeholder="Price before sale"
                     value={priceBefore}
-                    onChange={(e)=>setPriceBefore(e.target.value)}
+                    onChange={onChangePriceBefore}
                 />
                 <input
                     type="number"
                     className="input-form d-block mt-3 px-3"
                     placeholder="Product price"
                     value={priceAfter}
-                    onChange={(e)=>setPriceAfter(e.target.value)}
+                    onChange={onChangePriceAfter}
                 />
                 <input
                     type="number"
                     className="input-form d-block mt-3 px-3"
                     placeholder="Quantity"
                     value={qty}
-                    onChange={(e)=>setQty(e.target.value)}
+                    onChange={onChangeQty}
                 />
                 <select
                     onChange={onSelectCategory}
@@ -134,9 +71,9 @@ const AdminAddProducts = () => {
                     className="select input-form-area mt-3 px-2 ">
                     <option value="0">The Main category</option>
                     {
-                        category.data ? (category.data.map((item) => {
+                        category.data ? (category.data.map((item,index) => {
                             return (
-                                <option value={item._id}>{item.name}</option>
+                                <option key={index} value={item._id}>{item.name}</option>
                             )
                         })) : null
                     }
@@ -158,13 +95,14 @@ const AdminAddProducts = () => {
                     className="select input-form-area mt-3 px-2 ">
                     <option value="0">The brand</option>
                     {
-                            brand.data ? (brand.data.map((item) => {
+                            brand.data ? (brand.data.map((item, index) => {
                                 return (
-                                    <option value={item._id}>{item.name}</option>
+                                    <option key={index} value={item._id}>{item.name}</option>
                                 )
                             })) : null
                     }
                 </select>
+
                 <div className="text-form mt-3 ">The colors</div>
                 <div className="mt-1 d-flex">
                     {
@@ -180,7 +118,7 @@ const AdminAddProducts = () => {
                             })
                         ) : null
                     }
-                    <img onClick={()=> setShowColor(!showColor)} src={add} alt="" width="30px" height="35px" className="add-image" style={{cursor:"pointer"}} />
+                    <img onClick={onChangeColor} src={add} alt="" width="30px" height="35px" className="add-image" style={{cursor:"pointer"}} />
                     {
                         showColor === true ? <CompactPicker onChangeComplete={handelChangeComplete} /> : null
                     }
@@ -189,9 +127,10 @@ const AdminAddProducts = () => {
         </Row>
         <Row>
             <Col sm="8" className="d-flex justify-content-end ">
-                <button className="btn-save d-inline mt-2 ">Save changes</button>
+                <button className="btn-save d-inline mt-2" onClick={handelSubmit}>Save changes</button>
             </Col>
         </Row>
+        <ToastContainer />
     </div>
 )
 }
