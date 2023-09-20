@@ -5,16 +5,18 @@ import CardProductContainer from '../../components/ProductPage/CardProductContai
 import DiscountSection from '../../components/Home/DiscountSection'
 import BrandFeatured from '../../components/Brand/BrandFeatured'
 import './homePage.css'
+import ViewAllProductHome from '../../hook/product/ViewAllProductHome'
 
 
 const HomePage = () => {
+    const [items] = ViewAllProductHome()
     return (
     <div>
         <Slider />
         <HomePageCategory />
-        <CardProductContainer title="Top selling items" btntitle="More"  pathText='/products' />
+        <CardProductContainer products={items} title="Top selling items" btntitle="More"  pathText='/products' />
         <DiscountSection />
-        <CardProductContainer title="Top Picks" btntitle="More" pathText='/products'  />
+        <CardProductContainer products={items} title="Top Picks" btntitle="More" pathText='/products'  />
         <BrandFeatured title="the most popular" btntitle="More" />
     </div>
 )

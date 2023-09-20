@@ -6,14 +6,15 @@ import rate from "../../images/rate.png";
 import { Link } from 'react-router-dom';
 import './productsDetails.css'
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
   return (
     <Col xs="6" sm="6" md="4" lg="3" className="d-flex">
       <Card
         className="my-5"
         style={{
           width: "100%",
-          height: "360px",
+          height: "100%",
+          minHeight:"380px",
           borderRadius: "8px",
           border: "none",
           backgroundColor: "#FFFFFF",
@@ -21,7 +22,7 @@ const ProductCard = () => {
         }}
       >
         <Link to="/products/:id" style={{ textDecoration: 'none' }}>
-          <Card.Img style={{ height: "228px", width: "100%" }} src={prod1} />
+          <Card.Img style={{ height: "228px", width: "100%" }} src={item.imageCover} />
         </Link>
         <div className="d-flex justify-content-end mx-2">
           <img
@@ -37,13 +38,13 @@ const ProductCard = () => {
         <Card.Body>
           <Card.Title>
             <div className="card-title">
-              title
+              {item.title}
             </div>
           </Card.Title>
           <Card.Text>
             <div className="d-flex justify-content-between flex-column">
               <div className="d-flex">
-                <div className="card-price">$1,440.00</div>
+                <div className="card-price">${item.price}</div>
               </div>
             </div>
               <div className="d-flex">

@@ -14,9 +14,9 @@ const AddProductHook = () => {
     // values State
     const [prodName, setProdName] = useState('');
     const [prodDescription, setProdDescription] = useState('');
-    const [priceBefore, setPriceBefore] = useState(0);
-    const [priceAfter, setPriceAfter] = useState(0);
-    const [qty, setQty] = useState(0);
+    const [priceBefore, setPriceBefore] = useState();
+    const [priceAfter, setPriceAfter] = useState();
+    const [qty, setQty] = useState();
     const [catID, setCatID] = useState('');
     const [brandID, setBrandId] = useState('');
     const [subCatID, setSubCatID] = useState([]);
@@ -137,6 +137,11 @@ const handelSubmit = async (e) => {
     /// validation
     if(prodName === "" || prodDescription === "" || priceBefore <= 0 || qty === 0 || catID === "" || images.length <= 0){
         notify("Please fill out the required inputs","warm")
+    }
+
+    // to check if the price before is greater than the price after
+    if(priceBefore <= priceAfter){
+        notify("the price before should be less than price after","warm")
     }
 
     //to convert base 64 to file

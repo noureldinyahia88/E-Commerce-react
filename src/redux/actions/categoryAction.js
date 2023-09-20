@@ -10,7 +10,6 @@ export const getAllCategory = (limit) => async (dispatch) => {
         
         const response = await useGetData(`/api/v1/categories?limit=${limit}`)
 
-        console.log(response);
         dispatch ({
             type: GET_ALL_CATEGORY,
             payload: response,
@@ -29,7 +28,6 @@ export const getAllCategoryPage = (page) => async (dispatch) => {
         
         const response = await useGetData(`/api/v1/categories?limit=6&page=${page}`)
 
-        console.log(response);
         dispatch ({
             type: GET_ALL_CATEGORY,
             payload: response,
