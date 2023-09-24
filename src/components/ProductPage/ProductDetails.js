@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import ProductText from './ProductText'
 
 const ProductDetails = () => {
+    
     return (
     <div className='page-body'>
         <Container>

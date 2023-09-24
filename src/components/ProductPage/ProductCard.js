@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
-import prod1 from "../../images/prod1.png";
 import faroff from "../../images/fav-off.png";
 import rate from "../../images/rate.png";
 import { Link } from 'react-router-dom';
@@ -21,7 +20,7 @@ const ProductCard = ({item}) => {
           boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.04)",
         }}
       >
-        <Link to="/products/:id" style={{ textDecoration: 'none' }}>
+        <Link to={`/products/${item._id}`} style={{ textDecoration: 'none' }}>
           <Card.Img style={{ height: "228px", width: "100%" }} src={item.imageCover} />
         </Link>
         <div className="d-flex justify-content-end mx-2">
