@@ -14,7 +14,6 @@ const ViewAllProductHome = () => {
     
     let items = [];
     if(allProducts &&  allProducts.data){
-        console.log(allProducts.data);
         items = allProducts.data.slice(0, 4)
     }
     else {

@@ -1,6 +1,6 @@
 .footer{
-    background: #f4f4f4;
-    color: #fff;
+    background: #ededed;
+    color: #6a6a6a;
     height: 100%;
     width: 100%;
     padding: 20px;
@@ -8,7 +8,7 @@
 
 
 .footer-shroot {
-    color: #ffffff;
+    color: #6a6a6a;
     font-family: 'Poppins', sans-serif;
     font-family: 'Rubik', sans-serif;
     font-size: 13px;
@@ -16,11 +16,16 @@
     letter-spacing: 0;
     line-height: 18px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
-.footer-head {
-    
+.footer-shroot:hover{
+    color: black;
 }
+.icon-footer {
+    transition: all 0.3s ease;
 
-.icon{
     cursor: pointer;
+}
+.icon-footer:hover{
+    color: black;
 }

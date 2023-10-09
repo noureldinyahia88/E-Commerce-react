@@ -3,9 +3,11 @@ import ReactPaginate from "react-paginate";
 import './pagination.css'
 
 const Pagination = ({pageCount, onPress}) => {
+
     const handlePageClick = (data) => {
-        onPress(data.selected +1 )
+        onPress(data.selected + 1)
     };
+
     return (
         <div className='container pag'>
             <ReactPaginate

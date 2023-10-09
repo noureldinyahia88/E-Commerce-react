@@ -9,7 +9,13 @@ import ViewSearchHook from '../../hook/product/ViewSearchHook'
 
 const ShopProducts = () => {
 
-  const [items] = ViewSearchHook()
+  const [items, pagination, onPress] = ViewSearchHook()
+
+  if(pagination){
+    var pageCount = pagination
+} else {
+    pageCount = 0
+}
 
   return (
     <div>
@@ -23,9 +29,11 @@ const ShopProducts = () => {
             </Col>
             <Col sm='10' xs='10' md='11'>
                 <CardProductContainer products={items}  title='' btntitle='' />
+                {
+                    pageCount > 1 ? (<Pagination pageCount={pageCount} onPress={onPress} />):null
+                }
             </Col>
         </Row>
-        <Pagination />
         </Container>
     </div>
   )

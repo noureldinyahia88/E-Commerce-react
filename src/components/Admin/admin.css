@@ -3,28 +3,25 @@
     height: 600px;
     width: 100%;
     border-radius: 15px;
-    background-color: #f4f4f4;
+    border: 1px solid #67ad5c;
 }
 
 .side-text {
-    color: #757575;
+    color: #555550;
     font-family: 'Montserrat', sans-serif ;
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 0;
-    line-height: 20px;
     width: 100%;
-    border-radius: 5px;
     cursor: pointer;
-    transition: all .3s;
+    transition: all .1s;
 }
 
 .side-text:hover {
-    background-color: #67ad5c;
-    color: white;
+    color: #67ad5c;
     font-size: 14px;
-  }
-  .admin-content-text {
+}
+.admin-content-text {
     color: #555550;
     font-family: 'Montserrat', sans-serif;
     font-size: 21px;
@@ -88,7 +85,9 @@
     font-size: 16px;
     font-weight: 500;
 }
-.delete , .edit{
+.btn-card , .edit{
+    border: none;
+    background-color: transparent;
     font-size: 16px;
     color: #67ad5c;
 }

@@ -11,4 +11,5 @@ export default combineReducers ({
     allBrand:brandReducer,
     subCategory:subcategoryReducer,
     allProducts: productReducer
+    
 })

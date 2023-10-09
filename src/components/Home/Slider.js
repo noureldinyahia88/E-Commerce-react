@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Navbar, Container, Carousel, FormControl, Nav } from 'react-bootstrap'
 
-import slider1 from '../../images/slide1.png'
-import slider2 from '../../images/slide2.png'
-import slider3 from '../../images/slide3.png'
-import slider4 from '../../images/slide4.png'
+import slider1 from '../../images/_UNDesktopEN (1).png'
+import slider2 from '../../images/_UNDesktopEN.jpg'
+import slider3 from '../../images/_UNDesktopEN.png'
+import slider4 from '../../images/UNDesktop.png'
 
 
 const Slider = () => {

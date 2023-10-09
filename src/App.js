@@ -25,6 +25,7 @@ import { UserEditAddressPage } from "./pages/User/UserEditAddressPage";
 import UserAddAddressPage from "./pages/User/UserAddAddressPage";
 import UserProfilePage from "./pages/User/UserProfilePage";
 import MiniNav from "./components/Uitily/MiniNav";
+import AdminEditProductPage from "./pages/Admin/AdminEditProductPage";
 
 
 
@@ -59,6 +60,7 @@ function App() {
       <Route path="/user/add-address" element={<UserAddAddressPage />} />
       <Route path="/user/edit-address" element={<UserEditAddressPage />} />
       <Route path="/user/profile" element={<UserProfilePage />} />
+      <Route path="/admin/editProduct/:id" element={<AdminEditProductPage />} />
       </Routes>
       </BrowserRouter>
       <Footer />
