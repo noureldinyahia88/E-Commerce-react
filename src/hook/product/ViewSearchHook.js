@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {  getAllProductPage, getAllProductSearch } from '../../redux/actions/productsAction'
+import {  getAllProductSearch } from '../../redux/actions/productsAction'
 
 const ViewSearchHook = () => {
 
-    let limit = 15 
+    let limit = 15
     const dispatch = useDispatch()
     const gerProduct = async () => {
         let word = ''
@@ -19,7 +19,11 @@ const ViewSearchHook = () => {
     
     // get the pagination page
     const onPress = async (page) => {
-        await dispatch(getAllProductPage(page, limit))
+        let word = ''
+        if(localStorage.getItem("searchWord") != null){
+            word = localStorage.getItem("searchWord")
+        }
+        await dispatch(getAllProductSearch(`limit=${limit}&page=${page}&keyword=${word}`))
     }
 
     const allProducts = useSelector((state)=> state.allProducts.allProducts)
