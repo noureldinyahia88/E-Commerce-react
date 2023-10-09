@@ -5,7 +5,7 @@ import './Footer.css'
 import whiteLogo from '../../images/ss-logo-00.svg'
 const Footer = () => {
     return (
-        <div className="footer mt-5 pt-2" >
+        <div className="footer mt-5 pt-4 pb-4" >
             <Container className="">
                 <Row className="d-flex justify-content-between align-items-center">
                     <Col sm="6" className="d-flex align-items-left  flex-column ">

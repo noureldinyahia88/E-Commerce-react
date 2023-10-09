@@ -9,7 +9,7 @@ import ViewSearchHook from '../../hook/product/ViewSearchHook'
 
 const ShopProducts = () => {
 
-  const [items, pagination, onPress] = ViewSearchHook()
+  const [items, pagination, onPress, gerProduct, result] = ViewSearchHook()
 
   if(pagination){
     var pageCount = pagination
@@ -21,7 +21,7 @@ const ShopProducts = () => {
     <div>
         <CategoryHeader />
         <Container >
-        <SearchContainerResult title={`${items.length} products found`} />
+        <SearchContainerResult title={`${result} products found`} />
 
         <Row className='d-flex flex-row'>
             <Col sm='2' xs='2' md='1' className='d-flex'>
