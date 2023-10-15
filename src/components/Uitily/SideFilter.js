@@ -1,51 +1,48 @@
 import React from 'react'
-import { Row } from 'react-bootstrap'
+import { Row ,Col} from 'react-bootstrap'
+import SidebarSearchHook from '../../hook/search/sidebarSearchHook'
+import './sidebarStyle.css'
+
 
 const SideFilter = () => {
+    const [category, brand] = SidebarSearchHook()
+
     return (
-    <div className="mt-3">
+    <div className="sidbar mt-3">
         <Row>
-            <div className="d-flex flex-column mt-2">
-                <div className="filter-title">Male</div>
+            <Col className="d-flex flex-column mt-2">
+                <h5 className="sidbarHead mt-3">Categories</h5>
                 <div className="d-flex mt-3">
-                <input type="checkbox" value="" />
-                <div className="filter-sub me-2 ">Women</div>
-                </div>
-                <div className="d-flex mt-2">
-                <input type="checkbox" value="" />
-                <div className="filter-sub me-2 ">Unisex</div>
-                </div>
-                <div className="d-flex mt-2">
-                <input type="checkbox" value="" />
-                <div className="filter-sub me-2 "> olyester</div>
-                </div>
-                <div className="d-flex mt-2">
-                <input type="checkbox" value="" />
-                <div className="filter-sub me-2 "> Cotton/Polyester</div>
-                </div>
-                <div className="d-flex mt-2">
-                <input type="checkbox" value="" />
-                <div className="filter-sub me-2 "> Coton</div>
-                </div>
-            </div>
-    
-            <div className="d-flex flex-column mt-2">
-                <div className="filter-title mt-3">BRAND</div>
-                <div className="d-flex mt-3">
-                <input type="checkbox" value="" />
+                <input type="checkbox" value="0" />
                 <div className="filter-sub me-2 ">All</div>
                 </div>
+                {
+                    category ? (category.map((item, index)=>
+                        <div key={index} className="d-flex mt-3">
+                <input type="checkbox" value={item._id} />
+                <div className="filter-sub me-2 ">{item.name}</div>
+                </div>
+                    )):<h3>No Category</h3>
+                }
+            </Col>
+    
+            <Col className="d-flex flex-column mt-2">
+            <h5 className="sidbarHead mt-3">Brands</h5>
                 <div className="d-flex mt-2">
                 <input type="checkbox" value="" />
                 <div className="filter-sub me-2 ">Apple</div>
                 </div>
-                <div className="d-flex mt-2">
-                <input type="checkbox" value="" />
-                <div className="filter-sub me-2 ">Samsung</div>
+                {
+                    brand ? (brand.map((item, index)=>
+                    <div key={index} className="d-flex mt-2">
+                <input type="checkbox" value={item._id} />
+                <div className="filter-sub me-2 ">{item.name}</div>
                 </div>
-            </div>
+                    )) : <h3>No Brand</h3>
+                }
+            </Col>
     
-            <div className="filter-title my-3">Price</div>
+            <div className="my-3">Price</div>
             <div className="d-flex">
                 <p className="filter-sub my-2">From:</p>
                 <input

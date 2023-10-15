@@ -4,14 +4,15 @@ import {  getAllProductSearch } from '../../redux/actions/productsAction'
 
 const ViewSearchHook = () => {
 
-    let limit = 15
+    let limit = 10
     const dispatch = useDispatch()
     const gerProduct = async () => {
         let word = ''
         if(localStorage.getItem("searchWord") != null){
             word = localStorage.getItem("searchWord")
         }
-        await dispatch(getAllProductSearch(`limit=${limit}&keyword=${word}`))
+        sortData()
+        await dispatch(getAllProductSearch(`sort=${sort}&limit=${limit}&keyword=${word}`))
     }
     useEffect(()=>{
         gerProduct()
@@ -23,7 +24,8 @@ const ViewSearchHook = () => {
         if(localStorage.getItem("searchWord") != null){
             word = localStorage.getItem("searchWord")
         }
-        await dispatch(getAllProductSearch(`limit=${limit}&page=${page}&keyword=${word}`))
+        sortData()
+        await dispatch(getAllProductSearch(`sort=${sort}&limit=${limit}&page=${page}&keyword=${word}`))
     }
 
     const allProducts = useSelector((state)=> state.allProducts.allProducts)
@@ -57,6 +59,28 @@ const ViewSearchHook = () => {
             pagination = []
         }
     } catch(e) {}
+
+    let sortType = ""
+    let sort;
+    const sortData = () => {
+        if(localStorage.getItem("filterType") !== null){
+            sortType = localStorage.getItem("filterType")
+        } else {
+            sortType = ""
+        } 
+
+        if(sortType === "+x"){
+            sort = "+price"
+        } else if(sortType === "-x"){
+            sort = "-price"
+        }
+        else if(sortType === "most sold"){
+            sort = "-sold"
+        }
+        else if(sortType === "most rating"){
+            sort = "-quantity"
+        }
+    }
 
 return [items, pagination, onPress, gerProduct, result]
 }

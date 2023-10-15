@@ -21,13 +21,13 @@ const ShopProducts = () => {
     <div>
         <CategoryHeader />
         <Container >
-        <SearchContainerResult title={`${result} products found`} />
+        <SearchContainerResult title={`${result} products found`} onClick={gerProduct} />
 
         <Row className='d-flex flex-row'>
-            <Col sm='2' xs='2' md='1' className='d-flex'>
+            <Col sm='4' xs='4' md='2' className='d-flex'>
             <SideFilter />
             </Col>
-            <Col sm='10' xs='10' md='11'>
+            <Col sm='8' xs='8' md='10'>
                 <CardProductContainer products={items}  title='' btntitle='' />
                 {
                     pageCount > 1 ? (<Pagination pageCount={pageCount} onPress={onPress} />):null
