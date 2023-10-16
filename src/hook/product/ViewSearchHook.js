@@ -6,13 +6,49 @@ const ViewSearchHook = () => {
 
     let limit = 10
     const dispatch = useDispatch()
-    const gerProduct = async () => {
-        let word = ''
+
+    // get from localStorage
+    let word = '' 
+    var queryCat 
+    var queryBrand
+    let priceFrom = "", priceTo = "";
+    let priceFromString = ""
+    let priceToString = ""
+    const getStorage = () => {
         if(localStorage.getItem("searchWord") != null){
             word = localStorage.getItem("searchWord")
         }
+        if(localStorage.getItem("categoryChecked") != null){
+            queryCat = localStorage.getItem("categoryChecked")
+        }
+        if(localStorage.getItem("brandChecked") != null){
+            queryBrand = localStorage.getItem("brandChecked")
+        }
+        if(localStorage.getItem("priceFrom") != null){
+            priceFrom = localStorage.getItem("priceFrom")
+        }
+        if(localStorage.getItem("priceTo") != null){
+            priceTo = localStorage.getItem("priceTo")
+        }
+    }
+
+    const gerProduct = async () => {
+        getStorage()
         sortData()
-        await dispatch(getAllProductSearch(`sort=${sort}&limit=${limit}&keyword=${word}`))
+        
+        if(priceFrom === "" || priceFrom <= 0){
+            priceFromString = ""
+        } else {
+            priceFromString = `&price[gt]=${priceFrom}`
+        }
+
+        
+        if(priceTo === "" || priceTo <= 0){
+            priceToString = ""
+        } else {
+            priceToString = `&price[lte]=${priceTo}`
+        }
+        await dispatch(getAllProductSearch(`sort=${sort}&limit=${limit}&keyword=${word}&${queryCat}&${queryBrand}${priceFromString}${priceToString}`))
     }
     useEffect(()=>{
         gerProduct()
@@ -20,12 +56,9 @@ const ViewSearchHook = () => {
     
     // get the pagination page
     const onPress = async (page) => {
-        let word = ''
-        if(localStorage.getItem("searchWord") != null){
-            word = localStorage.getItem("searchWord")
-        }
+        getStorage()
         sortData()
-        await dispatch(getAllProductSearch(`sort=${sort}&limit=${limit}&page=${page}&keyword=${word}`))
+        await dispatch(getAllProductSearch(`sort=${sort}&limit=${limit}&page=${page}&keyword=${word}&${queryCat}&${queryBrand}${priceFromString}${priceToString}`))
     }
 
     const allProducts = useSelector((state)=> state.allProducts.allProducts)

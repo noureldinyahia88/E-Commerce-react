@@ -28,3 +28,13 @@
 .filter-sub:hover{
     color: #67ad5c;
 }
+.priceInput{
+    width: 100%;
+    border: #f5f5f5 2px solid;
+    border-radius: 10px;
+    transition: all 0.3s ease-in;
+}
+.priceInput:focus {
+    outline: none;
+    border: #67ad5c 2px solid;
+}
