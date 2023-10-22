@@ -6,20 +6,29 @@
   color: transparent;
     text-align: center;
 }
-
+.container-style{
+  height: 62vh;
+}
 .row label{
     color: #272727;
 }
 
 .text-link{
-    color: #729B79;
+    color: #67ad5c;
+}
+.sign-body{
+  background-color: #67ad5c17;
+  width: 500px;
+  margin: 0 auto !important;
+  border-radius: 15px;
+  height: 100%;
 }
 .user-input {
     box-sizing: border-box;
     height: 37px;
     width: 375px;
     border: none;
-    border-bottom: 2px solid #729B79;
+    border-bottom: 2px solid #67ad5c;
     border-radius: 4px;
     padding:15px;
     background-color: transparent;
@@ -28,7 +37,7 @@
     outline: none;
 }
   .title-login {
-    color: #555550;
+    color: #67ad5c;
     font-family: 'Poppins', sans-serif;
     font-family: 'Rubik', sans-serif;
     font-size: 30px;
@@ -37,13 +46,24 @@
     line-height: 28px;
     text-align: right;
   }
+  .title-Account{
+    color: #67ad5c;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 28px;
+    text-align: right;
+  }
+
   .btn-login {
     height: 46px;
     width: 374px;
     border-radius: 9px;
     border: none;
     color: #ffffffff;
-    background-color: #729B79;
+    background-color: #67ad5c;
   }
   .btn-login:hover {
     color: #ffffff;

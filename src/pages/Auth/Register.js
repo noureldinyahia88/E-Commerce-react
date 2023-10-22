@@ -2,29 +2,52 @@ import React from 'react'
 import './auth.css'
 import { Container,Row,Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import RegisterHook from '../../hook/auth/RegisterHook'
+import { ToastContainer } from 'react-toastify';
 
 const Register = () => {
+    const [name,email,phone,password,confirmPassword,onChangeName,onChangeEmail,onChangePhone,onChangePassword,onConfirmPassword,onSubmit] = RegisterHook()
     return (
-        <Container style={{ minHeight: "80vh" }}>
-        <Row className="py-5 d-flex justify-content-center hieght-search">
+        <Container className="container-style">
+        <Row className="sign-body py-5 d-flex ">
             <Col sm="12" className="d-flex flex-column ">
-            <label className="mx-auto title-login">New Account</label>
+            <h2 className="mx-auto title-Account mb-4">New Account</h2>
             <input
                 placeholder="User Name"
                 type="text"
-                className="user-input mt-3 mx-auto"
+                className="user-input my-2 mx-auto"
+                value={name}
+                onChange={onChangeName}
             />
             <input
                 placeholder="Your Email"
-                type="text"
-                className="user-input my-3 mx-auto"
+                type="email"
+                className="user-input my-2 mx-auto"
+                value={email}
+                onChange={onChangeEmail}
+            />
+            <input
+                placeholder="Your Phone Number"
+                type="phone"
+                className="user-input my-2 mx-auto"
+                value={phone}
+                onChange={onChangePhone}
             />
             <input
                 placeholder="Password"
                 type="password"
-                className="user-input mx-auto"
+                className="user-input my-2 mx-auto"
+                value={password}
+                onChange={onChangePassword}
             />
-            <button className="btn-login mx-auto mt-4">Login</button>
+            <input
+                placeholder="Confirm Password"
+                type="password"
+                className="user-input my-2 mx-auto"
+                value={confirmPassword}
+                onChange={onConfirmPassword}
+            />
+            <button className="btn-login mx-auto mt-4" onClick={onSubmit}>Sign up</button>
             <label className="mx-auto my-4">
             Already have an account?{" "}
             <Link to="/login" style={{ textDecoration: "none" }}>
@@ -35,6 +58,7 @@ const Register = () => {
             </label>
         </Col>
         </Row>
+        <ToastContainer />
     </Container>
 )
 }

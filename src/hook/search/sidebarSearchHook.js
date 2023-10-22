@@ -6,6 +6,7 @@ import ViewSearchHook from '../product/ViewSearchHook';
 
 const SidebarSearchHook = () => {
     const [items, pagination, onPress, gerProduct, result] = ViewSearchHook()
+    
     const dispatch = useDispatch();
     useEffect(()=>{
         const run = async () => {
