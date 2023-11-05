@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import { Container, FormControl, Nav } from 'react-bootstrap';
+import { Container, FormControl, Nav, NavDropdown } from 'react-bootstrap';
 
 import './navbar.css';
 
@@ -8,9 +8,28 @@ import Logo from '../../images/ss-logo-00.svg';
 import login from '../../images/user 1.svg';
 import cart from '../../images/shopping-bag 1.svg';
 import NavbarSearchHook from '../../hook/search/navbarSearchHook';
+import { useDispatch, useSelector } from 'react-redux';
+import { currentUser } from '../../redux/actions/authAction';
 
 
 const NavbarLogin = () => {
+
+    const dispatch = useDispatch()
+    const [user, setUser] = useState("")
+
+    useEffect(()=>{
+        if(localStorage.getItem("user") != null){
+            setUser(JSON.parse(localStorage.getItem("user")))
+        }
+        // dispatch(currentUser())
+    }, [])
+
+    // const res = useSelector(state => state.authReducer.currentUser)
+    const logOut = () => {
+        localStorage.removeItem("user")
+        setUser('')
+    }
+
 
     let word = ""
         if(localStorage.getItem("searchWord") != null){
@@ -57,11 +76,19 @@ const NavbarLogin = () => {
                         className="search me-2 w-100"
                         aria-label="Search"
                     />
-                    <Nav className="me-auto">
-                        <Nav.Link href="/login" className="nav-style nav-text d-flex mt-3 justify-content-center">
-                            <p className="p-nav" >Login</p>
-                            <img src={login} className="login-img" alt="sfvs" />
+                    <Nav className="me-auto navStyle">
+                        {
+                            user !== '' ? (
+                                <NavDropdown title={user.name} className="titleDropdown" id="basic-nav-dropdown">
+                                    <NavDropdown.Item href="#action/3.1">Your Profile</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={logOut} href="/">Log Out</NavDropdown.Item>
+                                    
+                                    </NavDropdown>
+                            ):<Nav.Link href="/login" className="nav-style nav-text d-flex mt-3 justify-content-center" style={{ color: "white" }}>
+                            <p className="p-nav" >Log In</p>
+                            <img src={cart} className="login-img" alt="sfvs" />
                         </Nav.Link>
+                        }
                         <Nav.Link href="/cart" className="nav-style nav-text d-flex mt-3 justify-content-center" style={{ color: "white" }}>
                             <p className="p-nav" >Cart</p>
                             <img src={cart} className="login-img" alt="sfvs" />

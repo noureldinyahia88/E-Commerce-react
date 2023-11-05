@@ -7,7 +7,7 @@
     text-align: center;
 }
 .container-style{
-  height: 62vh;
+  height: auto;
 }
 .row label{
     color: #272727;
@@ -67,4 +67,10 @@
   }
   .btn-login:hover {
     color: #ffffff;
+  }
+
+.spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }

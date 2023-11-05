@@ -1,6 +1,6 @@
 import useDeleteData from '../../hooks/useDeleteData'
 import { useEditWithImage, useInUpdateDataWithImage } from '../../hooks/useEditData'
-import useGetData from '../../hooks/useGetData'
+import {useGetData} from '../../hooks/useGetData'
 import { useInsertDataWithImage } from '../../hooks/useInsetData'
 import {GET_ERROR, CREATE_PRODUCTS, GET_ALL_PRODUCTS, GET_PRODUCT_DETAILS, GET_PRODUCT_LIKE, DELETE_PRODUCT, UPDATE_PRODUCT} from '../type'
 

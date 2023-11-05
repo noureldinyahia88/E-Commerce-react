@@ -1,12 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import notify from '../../hook/useToastify'
+import { useDispatch, useSelector } from 'react-redux'
+import { createNewUser } from '../../redux/actions/authAction'
+import { useNavigate } from 'react-router-dom'
 
 const RegisterHook = () => {
+
+    const navigate = useNavigate()
+
     const [name,setName] = useState("")
     const [email,setEmail] = useState("")
     const [phone,setPhone] = useState("")
     const [password,setPassword] = useState("")
     const [confirmPassword,setConfirmPassword] = useState("")
+    const [loading, setLoading] = useState(true)
 
     const onChangeName = (e) => {
         setName(e.target.value)
@@ -28,6 +35,9 @@ const RegisterHook = () => {
         setConfirmPassword(e.target.value)
     }
 
+    const res = useSelector(state => state.authReducer.createUser)
+    
+    
     const volition = () => {
         if(name === ""){
             notify("Enter Your Name Please", "error")
@@ -37,25 +47,60 @@ const RegisterHook = () => {
             notify("Enter Your Email Please", "error")
             return;
         } 
-        if(phone.length <= 11){
-            notify("Enter Valid Phone Number", "error")
-            return;
-        }
         if(password === ""){
             notify("Enter Your password", "error")
             return;
         } 
-        if(password.length <= 8){
-                notify("8 character/number at least", "error")
-        }
-        if(confirmPassword != password){
+        if(confirmPassword !== password){
             notify("Not Match", "error")
             return;
         }
     }
-    const onSubmit = () =>{
-        volition()
+
+    const dispatch = useDispatch()
+
+    const onSubmit = async () =>{
+    volition()
+    setLoading(true)
+    await dispatch(createNewUser({
+        name,
+        email,
+        password,
+        passwordConfirm:confirmPassword,
+        phone
+    }))
+    setLoading(false)
     }
+
+    useEffect(()=>{
+        if(loading === false){
+            if(res){
+                console.log(res);
+                if(res.data.token){
+                    localStorage.setItem("token",res.data.token)
+                    notify("success","success")
+                    setTimeout(()=>{
+                        navigate("/login")
+                    })
+                }  
+                if(res.data.errors){
+                    if(res.data.errors[0].msg === "E-mail already in use"){
+                        notify("This Email Already exist", "error")
+                    }
+                }
+                if(res.data.errors){
+                    if(res.data.errors[0].msg === "accept only egypt phone numbers"){
+                        notify("accept only egypt phone numbers","error")
+                    }
+                }
+                if(res.data.errors){
+                    if(res.data.errors[0].msg === "must be at least 6 chars"){
+                        notify("password must be at least 6 chars","error")
+                    }
+                }
+            }
+        }
+    },[loading])
 
     return [name,email,phone,password,confirmPassword,onChangeName,onChangeEmail,onChangePhone,onChangePassword,onConfirmPassword,onSubmit]
 }

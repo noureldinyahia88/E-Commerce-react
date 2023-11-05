@@ -1,6 +1,6 @@
 import {CREATE_CATEGORY, GET_ALL_CATEGORY, GET_ONE_CATEGORY} from '../type'
 import {GET_ERROR} from '../type'
-import useGetData from '../../hooks/useGetData'
+import {useGetData} from '../../hooks/useGetData'
 import {useInsertDataWithImage} from '../../hooks/useInsetData'
 // import baseURL from '../../Api/baseURL'
 

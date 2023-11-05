@@ -1,6 +1,6 @@
 import {GET_ERROR, CREATE_SUB_CATEGORY, GET_SUB_CATEGORY} from '../type'
 import { useInsertData } from '../../hooks/useInsetData'
-import useGetData from '../../hooks/useGetData'
+import {useGetData} from '../../hooks/useGetData'
 
 // create subcategory 
 export const createSubcategory = (data) => async (dispatch) => {

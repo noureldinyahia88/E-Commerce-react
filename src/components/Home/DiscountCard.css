@@ -1,7 +1,7 @@
 .discount {
     height: 130px;
     border-radius: 8px;
-    background: linear-gradient(to left, rgba(114, 155, 121, 1), rgba(71, 91, 99, 1));
+    background: #9bae98;
 }
 .discount .discount-title{
     color: #fff;
