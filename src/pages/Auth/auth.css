@@ -74,3 +74,8 @@
     align-items: center;
     justify-content: center;
   }
+  .form-center{
+      height: auto;
+    display: grid;
+    place-items: center;
+  }

@@ -21,8 +21,9 @@
 .logo{
     width: 180px;
 }
-.p-nav{
+.p-nav , .titleDropdown{
     color: #272727;
+    font-weight: 500;
     transition: 0.3s all ease;
 }
 .p-nav:hover{

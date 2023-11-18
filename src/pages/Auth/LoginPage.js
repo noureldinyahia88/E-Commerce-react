@@ -39,6 +39,15 @@ const LoginPage = () => {
                         </span>
                     </Link>
                 </label>
+
+                <label className="mx-auto my-4">
+                
+                    <Link to="/user/forget-password" style={{textDecoration:'none'}}>
+                        <span style={{ cursor: "pointer" }} className="text-link">
+                        Forget Your Password?
+                        </span>
+                    </Link>
+                </label>
             </Col>
             <ToastContainer />
         {

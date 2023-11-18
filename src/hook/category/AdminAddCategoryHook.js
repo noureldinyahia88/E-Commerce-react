@@ -62,9 +62,9 @@ const AdminAddCategoryHook = () => {
             setTimeout(()=> setPressed(false), 1000)
 
             if(res.state === 201){
-                notify("Success","success")
-            } else {
                 notify("Failed","error")
+            } else {
+                notify("Success","success")
             }
 
         }

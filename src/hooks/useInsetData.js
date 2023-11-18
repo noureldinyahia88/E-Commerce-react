@@ -3,7 +3,7 @@ import baseURL from "../Api/baseURL";
 
 const useInsertDataWithImage = async (url, params) => {
     const config = {
-        headers:{"Content-Type":"multipart/form-data"}
+        headers:{"Content-Type":"multipart/form-data", Authorization: `Bearer ${localStorage.getItem("token")}`}
     }
     try {
         const res = await baseURL.post(url, params, config);

@@ -79,16 +79,19 @@ const NavbarLogin = () => {
                     <Nav className="me-auto navStyle">
                         {
                             user !== '' ? (
-                                <NavDropdown title={user.name} className="titleDropdown" id="basic-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Your Profile</NavDropdown.Item>
+                                <NavDropdown title={user.name.charAt(0).toUpperCase() + user.name.slice(1)} className="titleDropdown" id="basic-nav-dropdown">
+                                    {
+                                        user.role === "admin" ? (<NavDropdown.Item href="/admin/addproduct">Dashboard</NavDropdown.Item>) : (<NavDropdown.Item href="#action/3.1">Your Profile</NavDropdown.Item>)
+                                    }
+                                    
                                     <NavDropdown.Item onClick={logOut} href="/">Log Out</NavDropdown.Item>
                                     
                                     </NavDropdown>
                             ):<Nav.Link href="/login" className="nav-style nav-text d-flex mt-3 justify-content-center" style={{ color: "white" }}>
                             <p className="p-nav" >Log In</p>
-                            <img src={cart} className="login-img" alt="sfvs" />
                         </Nav.Link>
                         }
+                        
                         <Nav.Link href="/cart" className="nav-style nav-text d-flex mt-3 justify-content-center" style={{ color: "white" }}>
                             <p className="p-nav" >Cart</p>
                             <img src={cart} className="login-img" alt="sfvs" />

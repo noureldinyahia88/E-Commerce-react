@@ -26,6 +26,8 @@ import UserAddAddressPage from "./pages/User/UserAddAddressPage";
 import UserProfilePage from "./pages/User/UserProfilePage";
 import MiniNav from "./components/Uitily/MiniNav";
 import AdminEditProductPage from "./pages/Admin/AdminEditProductPage";
+import ForgetPassWordPage from "./pages/Auth/ForgetPassowrdPage";
+import NewPasswordPage from "./pages/Auth/NewPasswordPage";
 
 
 
@@ -61,6 +63,8 @@ function App() {
       <Route path="/user/edit-address" element={<UserEditAddressPage />} />
       <Route path="/user/profile" element={<UserProfilePage />} />
       <Route path="/admin/editProduct/:id" element={<AdminEditProductPage />} />
+      <Route path="/user/forget-password" element={<ForgetPassWordPage />} />
+      <Route path="/user/set-new-password" element={<NewPasswordPage />} />
       </Routes>
       </BrowserRouter>
       <Footer />

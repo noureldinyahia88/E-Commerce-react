@@ -1,7 +1,7 @@
 .discount {
     height: 130px;
     border-radius: 8px;
-    background: #9bae98;
+    background: #67ad5c;
 }
 .discount .discount-title{
     color: #fff;
@@ -13,7 +13,10 @@
 }
 
 .dicount-img {
-    padding: 20px;
-    max-height: 130px;
-    max-width: 80%;
+    max-height: 200px;
+    max-width: 100%;
+}
+.title-wrapper{
+    position: relative;
+    bottom: 22%;
 }
