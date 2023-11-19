@@ -15,6 +15,11 @@ const ProductDetailsPage = () => {
 
     const [item, images, cat, brand, prod] = ViewProductDetailsHook(id);
 
+    if(item) {
+        var rateAvg = item.ratingsAverage
+        var ratingsQuantity = item.ratingsQuantity
+    }
+
     if(prod) {
         var items = prod.slice(0,4)
     }
@@ -23,7 +28,7 @@ const ProductDetailsPage = () => {
     <div>
         <CategoryHeader />
         <ProductDetails />
-        <RateContainer />
+        <RateContainer ratingsQuantity = {ratingsQuantity} rateAvg={rateAvg} />
         <CardProductContainer products={items} title="You may like" />
     </div>
 )

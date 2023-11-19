@@ -7,17 +7,15 @@ import RateItem from './RateItem'
 import RatePost from './RatePost'
 import './rate.css'
 
-const RateContainer = () => {
+const RateContainer = ({ratingsQuantity,rateAvg}) => {
     return (
-        <Container>
-
     <Container className='rate-container my-5'>
         <Row>
             <Col className='d-flex'>
             <div className="sub-tile d-inline p-1 ">User reviews</div>
                     <img className="mt-2" src={rate} alt="" height="16px" width="16px" />
-                    <div className="cat-rate  d-inline  p-1 pt-2">4.3</div>
-                    <div className="rate-count d-inline p-1 pt-2">(Rate 154)</div>
+                    <div className="cat-rate  d-inline  p-1 pt-2">{rateAvg}</div>
+                    <div className="rate-count d-inline p-1 pt-2">({ratingsQuantity})</div>
             </Col>
         </Row>
 
@@ -28,9 +26,8 @@ const RateContainer = () => {
             <RateItem />
             <RateItem />
 
-    </Container>
             <Pagination />
-        </Container>
+    </Container>
 )
 }
 
