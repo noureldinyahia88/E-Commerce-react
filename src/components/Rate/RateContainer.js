@@ -6,8 +6,13 @@ import rate from '../../images/rate.png'
 import RateItem from './RateItem'
 import RatePost from './RatePost'
 import './rate.css'
+import ViewAllReviewHook from '../../hook/rate/ViewAllReviewHook'
+import { useParams } from 'react-router-dom'
 
 const RateContainer = ({ratingsQuantity,rateAvg}) => {
+    const { id } = useParams()
+    const [allReview, onPress] = ViewAllReviewHook(id)
+
     return (
     <Container className='rate-container my-5'>
         <Row>
@@ -18,15 +23,12 @@ const RateContainer = ({ratingsQuantity,rateAvg}) => {
                     <div className="rate-count d-inline p-1 pt-2">({ratingsQuantity})</div>
             </Col>
         </Row>
-
             <RatePost />
-            <RateItem />
-            <RateItem />
-            <RateItem />
-            <RateItem />
-            <RateItem />
-
-            <Pagination />
+            {allReview.data ? (allReview.data.map((review, index)=>{return (<RateItem key={index} review={review} />)})): <h6>No Reviews Added</h6>}
+            {
+                allReview.paginationResult && allReview.paginationResult.numberOfPages >= 2 ? (<Pagination pageCount={allReview.paginationResult ? allReview.paginationResult.numberOfPages : 0} onPress={onPress} />) : null
+            }
+            
     </Container>
 )
 }

@@ -31,3 +31,4 @@ export const RESET_PASSWORD = "RESET_PASSWORD"
 
 // create review
 export const CREATE_REVIEW = "CREATE_REVIEW"
+export const ALL_REVIEW_PRODUCT = "ALL_REVIEW_PRODUCT"
