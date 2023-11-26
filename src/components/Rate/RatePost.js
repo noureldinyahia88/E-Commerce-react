@@ -4,9 +4,13 @@ import { Col, Row } from "react-bootstrap";
 import './rate.css'
 import AddRateHook from "../../hook/rate/AddRateHook";
 import { ToastContainer } from "react-toastify";
+import { useParams } from "react-router-dom";
 
 const RatePost = () => {
-  const [rateText, rateValue, onChangeRateText, onChangedRateValue, user, onSubmit] = AddRateHook()
+  // to get product id
+  const {id} = useParams()
+
+  const [rateText, rateValue, onChangeRateText, onChangedRateValue, user, onSubmit] = AddRateHook(id)
 
   var name = "unKnown"
   if(user){

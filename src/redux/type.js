@@ -28,3 +28,6 @@ export const GET_CURRENT_USER = "GET_CURRENT_USER"
 export const FORGET_PASSWORD = "FORGET_PASSWORD"
 export const VERIFY_CODE = "VERIFY_CODE"
 export const RESET_PASSWORD = "RESET_PASSWORD"
+
+// create review
+export const CREATE_REVIEW = "CREATE_REVIEW"

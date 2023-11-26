@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import notify from '../../hook/useToastify'
 import { useDispatch, useSelector } from 'react-redux'
+import { createReview } from '../../redux/actions/rateAction'
 
 
-const AddRateHook = () => {
+const AddRateHook = (id) => {
     // add rate text state and rate num
     const dispatch = useDispatch()
 
@@ -24,11 +25,36 @@ const AddRateHook = () => {
       user =JSON.parse(localStorage.getItem("user"))
     }
 
-    const onSubmit = () => {
+    const  onSubmit = async () => {
       if(rateText === ''){
         notify("Please enter your comment.", "error")
       }
+      setLoading(true)
+      await dispatch(createReview(id,{
+        review: rateText,
+        rating: rateValue
+    }))
+    setLoading(false)
     }
+
+    const res = useSelector(state => state.reviewReducer.createReview)
+
+    useEffect(() => {
+      if(loading === false){
+        if(res){
+          console.log(res);
+          if(res.status && res.status === 403){
+            notify("Admin lacks permission to add review.","error")
+          }  else if(res.status.errors && res.data.errors[0].msg === "You already added review on this product"){
+            notify("You already added review on this product.","error")
+          } else if(res.status && res.status === 201){
+            notify("Your Review Added","success")
+          }
+        }
+      }
+    }, [loading])
+
+
     return [rateText, rateValue, onChangeRateText, onChangedRateValue, user, onSubmit]
 }
 
