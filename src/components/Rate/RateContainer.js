@@ -17,7 +17,7 @@ const RateContainer = ({ratingsQuantity,rateAvg}) => {
     <Container className='rate-container my-5'>
         <Row>
             <Col className='d-flex'>
-            <div className="sub-tile d-inline p-1 ">User reviews</div>
+            <div className="sub-tile d-inline p-1 ">Users review</div>
                     <img className="mt-2" src={rate} alt="" height="16px" width="16px" />
                     <div className="cat-rate  d-inline  p-1 pt-2">{rateAvg}</div>
                     <div className="rate-count d-inline p-1 pt-2">({ratingsQuantity})</div>

@@ -5,7 +5,6 @@
     padding-bottom: 12px;
     border-radius: 7px;
     background-color: #ffffff;
-    box-shadow: 0 1px 2px 0 rgba(151, 151, 151, 0.5);
 }
 .rate-count {
     color: #979797;
@@ -24,11 +23,12 @@
     line-height: 19px;
 }
 .text-area{
-    background-color: #E4EBE0;
-    border: none;
+    background-color: transparent !important;
+    border: none!important;
+
 }
 .text-area:focus{
-    border: none;
+    border: 1px solid #67ad5c !important;
     outline: none;
 }
 .rate-description {
@@ -42,4 +42,25 @@
 
 .product-cart-add{
     padding: 12px 10px 12px 10px;
+}
+
+/* rate item */
+.review-item{
+    display: flex ;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icons-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.rate-icon{
+    color: #67ad5c;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+.rate-icon:hover{
+    opacity: 50%;
 }

@@ -1,10 +1,11 @@
-import {CREATE_REVIEW, ALL_REVIEW_PRODUCT} from '../type'
+import {CREATE_REVIEW, ALL_REVIEW_PRODUCT, DELETE_REVIEW_PRODUCT} from '../type'
 
 
 
 const initial = {
     createReview: [],
     allReviewProduct: [],
+    deleteReview: [],
     loading: true
 }
 
@@ -22,7 +23,11 @@ const reviewReducer = (state = initial, action) => {
                 allReviewProduct: action.payload,
                 loading: false,
             }
-        
+            case DELETE_REVIEW_PRODUCT:
+            return {
+                ...state,
+                deleteReview: action.payload,
+            }
             default:
                 return state;
     }

@@ -49,6 +49,9 @@ const AddRateHook = (id) => {
             notify("You already added review on this product.","error")
           } else if(res.status && res.status === 201){
             notify("Your Review Added","success")
+            setTimeout(()=>{
+              window.location.reload(false)
+          }, 1000)
           }
         }
       }
