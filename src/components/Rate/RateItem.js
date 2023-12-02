@@ -5,11 +5,29 @@ import './rate.css'
 import rate from '../../images/rate.png'
 import DeleteRateHook from '../../hook/rate/DeleteRateHook';
 import { ToastContainer } from 'react-toastify';
+import EditRateHook from '../../hook/rate/EditRateHook';
+import ReactStars from 'react-rating-stars-component'
 
 const RateItem = ({review}) => {
 
     const [isUser, handelDelete, handleShow, handleClose, showDelete] = DeleteRateHook(review);
+    const [handelEdit, handleShowEdit, handleCloseEdit, showEdit, onChangeRateText, onChangeRateValue, newRateText, newRateValue] = EditRateHook(review)
     
+    const setting = {
+        size: 20,
+        count: 5,
+        color: "#979797",
+        activeColor: "#ffc107",
+        value: newRateValue,
+        a11y: true,
+        isHalf: true,
+        emptyIcon: <i className="far fa-star" />,
+        halfIcon: <i className="fa fa-star-half-alt" />,
+        filledIcon: <i className="fa fa-star" />,
+        onChange: newValue => {
+            onChangeRateValue(newValue);
+        }
+    };
 
     return (
         <div>
@@ -17,13 +35,37 @@ const RateItem = ({review}) => {
             <Modal.Header closeButton>
             <Modal.Title>Confirm deletion</Modal.Title>
             </Modal.Header>
-            <Modal.Body>Delete Your Comment</Modal.Body>
+            <Modal.Body>Delete Your Comment?</Modal.Body>
             <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
                 Close
             </Button>
             <Button variant="success" onClick={handelDelete}>
                 Delete
+            </Button>
+            </Modal.Footer>
+        </Modal>
+
+        <Modal show={showEdit} onHide={handleCloseEdit}>
+            <Modal.Header closeButton>
+            <Modal.Title>Confirm</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <ReactStars {...setting} />
+                <input
+                onChange={onChangeRateText}
+                value={newRateText}
+                type='text'
+                className='font w-100'
+                style={{border: 'none'}}
+                />
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseEdit}>
+                Close
+            </Button>
+            <Button variant="success" onClick={handelEdit}>
+                Edit
             </Button>
             </Modal.Footer>
         </Modal>
@@ -43,7 +85,7 @@ const RateItem = ({review}) => {
             </div>
             {
                 isUser === true ? (<div className="icons-wrapper">
-                <BsPencil  className="rate-icon" />
+                <BsPencil  className="rate-icon" onClick={handleShowEdit} />
                 <BsTrash3 className="rate-icon delete" onClick={handleShow} />
                 </div>): null
             }
