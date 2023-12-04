@@ -7,9 +7,8 @@ import notify from '../../hook/useToastify'
 import { deleteReviewProduct } from '../../redux/actions/rateAction'
 const DeleteRateHook = (review) => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
-    const [isUser, setIsUser] = useState(true)
+    const [isUser, setIsUser] = useState(false)
     const [loading, setLoading] = useState(true)
 
     const [showDelete, setShowDelete] = useState(false);
@@ -17,14 +16,11 @@ const DeleteRateHook = (review) => {
     const handleShow = () => setShowDelete(true);
 
     let user = JSON.parse(localStorage.getItem("user"))
-
-    console.log(`${user._id}`);
-    console.log(`${review.user._id}`);
+    
     useEffect(() => {
-        // if (review.user._id === user._id) {
-            // console.log("yes");
+        if (review.user._id === user._id) {
             setIsUser(true);
-        // }
+        }
     }, [])
 
 

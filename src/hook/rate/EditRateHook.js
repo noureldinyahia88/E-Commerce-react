@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import notify from '../../hook/useToastify'
+import { updateReviewProduct } from '../../redux/actions/rateAction';
 
 
 const EditRateHook = (review) => {
@@ -21,8 +22,8 @@ const EditRateHook = (review) => {
         setNewRateText(e.target.value)
     }
 
-    const onChangeRateValue = (e) => {
-        setNewRateValue(e.target.value)
+    const onChangeRateValue = (val) => {
+        setNewRateValue(val)
     }
 
 
@@ -30,19 +31,31 @@ const EditRateHook = (review) => {
 
     useEffect(() => {
         if (review.user._id === user._id) {
-            console.log("yes");
             setIsUser(true);
         }
     }, [])
 
 
     const handelEdit = async () => {
-        
+        setLoading(true)
+        dispatch(updateReviewProduct(review._id, {
+                review: newRateText,
+                rating: newRateValue
+            }))
+        setLoading(false)
+        handleCloseEdit()
     }
 
-
+    const res = useSelector(state => state.reviewReducer.updateReview)
     useEffect(() => {
-    
+        if(loading === false){
+            if(res){
+                notify("Done", "success")
+                setTimeout(() => {
+                    window.location.reload(false)
+                }, 1000)
+            }
+        }
     }, [loading])
 
     return [handelEdit, handleShowEdit, handleCloseEdit, showEdit, onChangeRateText, onChangeRateValue, newRateText, newRateValue]

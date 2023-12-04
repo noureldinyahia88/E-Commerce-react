@@ -1,7 +1,8 @@
 import useDeleteData from '../../hooks/useDeleteData';
 import { useGetDataToken } from '../../hooks/useGetData';
 import { useInsertData } from '../../hooks/useInsetData';
-import {CREATE_REVIEW , ALL_REVIEW_PRODUCT, DELETE_REVIEW_PRODUCT} from '../type'
+import { useInsUpdateData } from '../../hooks/useEditData'
+import {CREATE_REVIEW , ALL_REVIEW_PRODUCT, DELETE_REVIEW_PRODUCT, UPDATE_REVIEW_PRODUCT} from '../type'
 
 // set Review
 export const createReview = (prodID, body) => async (dispatch) => {
@@ -52,6 +53,24 @@ export const deleteReviewProduct = (id) => async (dispatch) => {
     } catch (e) {
         dispatch({
             type: DELETE_REVIEW_PRODUCT,
+            payload: e.response,
+        })
+    }
+}
+
+// update review on the product by the user
+export const updateReviewProduct = (id, body) => async (dispatch) => {
+    try {
+        
+        const response = await useInsUpdateData(`/api/v1/reviews/${id}`, body);
+
+        dispatch ({
+            type: UPDATE_REVIEW_PRODUCT,
+            payload: response,
+        })
+    } catch (e) {
+        dispatch({
+            type: UPDATE_REVIEW_PRODUCT,
             payload: e.response,
         })
     }

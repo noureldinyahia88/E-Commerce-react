@@ -14,9 +14,7 @@ const ViewAllReviewHook = (id) => {
 
     
     const allReview = useSelector(state => state.reviewReducer.allReviewProduct)
-    if(allReview){
-        console.log(allReview);
-    }
+
 
     useEffect(() => {
     setLoading(true)
