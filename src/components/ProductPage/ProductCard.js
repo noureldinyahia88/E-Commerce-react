@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Card, Col, ToastContainer } from 'react-bootstrap';
 import favoff from "../../images/heart_black.png";
 import fav from "../../images/heart_red.png";
 import rate from "../../images/rate.png";
 import { Link } from 'react-router-dom';
 import './productsDetails.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { addToWishListAction } from '../../redux/actions/addWishListAction';
+import notify from '../../hook/useToastify'
 
 
 
 const ProductCard = ({item}) => {
+
+  const dispatch = useDispatch()
 
   const [favImage, setFavImage] = useState(favoff)
 
@@ -22,9 +27,23 @@ const ProductCard = ({item}) => {
     if(isFav === false) {
       setFavImage(favoff)
     } else {
-      setFavImage(fav)
+      addWishlistData()
     }
   }, [isFav])
+
+  const addWishlistData = async (e) => {
+    await dispatch(addToWishListAction({
+      productId: item._id,
+  }))
+  console.log(res);
+  if(res && res.status === 200){
+    notify("The prodect added to the wishlist", "succses")
+  }
+  setFavImage(fav)
+  }
+
+  const res = useSelector(state => state.addToWishlistReducer.addWishlist)
+
 
   return (
     <Col xs="6" sm="6" md="4" lg="3" className="d-flex">
@@ -79,6 +98,7 @@ const ProductCard = ({item}) => {
           </Card.Text>
         </Card.Body>
       </Card>
+      <ToastContainer />
     </Col>
   );
 };
