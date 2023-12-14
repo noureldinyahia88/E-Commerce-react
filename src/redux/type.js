@@ -37,3 +37,5 @@ export const UPDATE_REVIEW_PRODUCT = "UPDATE_REVIEW_PRODUCT"
 
 // add to wish list
 export const ADD_TO_WISH_LIST = "ADD_TO_WISH_LIST"
+export const REMOVE_FROM_WISH_LIST = "REMOVE_FROM_WISH_LIST"
+export const GET_ALL_WISHLIST = "GET_ALL_WISHLIST"
