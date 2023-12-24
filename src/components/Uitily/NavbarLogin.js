@@ -82,7 +82,7 @@ const NavbarLogin = () => {
                             user !== '' ? (
                                 <NavDropdown title={user.name.charAt(0).toUpperCase() + user.name.slice(1)} className="titleDropdown" id="basic-nav-dropdown">
                                     {
-                                        user.role === "admin" ? (<NavDropdown.Item href="/admin/addproduct">Dashboard</NavDropdown.Item>) : (<NavDropdown.Item href="#action/3.1">Your Profile</NavDropdown.Item>)
+                                        user.role === "admin" ? (<NavDropdown.Item href="/admin/addproduct">Dashboard</NavDropdown.Item>) : (<NavDropdown.Item href="/user/profile">Your Profile</NavDropdown.Item>)
                                     }
                                     
                                     <NavDropdown.Item onClick={logOut} href="/">Log Out</NavDropdown.Item>
