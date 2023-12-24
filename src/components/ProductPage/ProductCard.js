@@ -1,74 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Card, Col, ToastContainer } from 'react-bootstrap';
-import favoff from "../../images/heart_black.png";
-import fav from "../../images/heart_red.png";
+
 import rate from "../../images/rate.png";
 import { Link } from 'react-router-dom';
 import './productsDetails.css'
-import { useDispatch, useSelector } from 'react-redux';
-import { addToWishListAction, removeFromWishListAction } from '../../redux/actions/addWishListAction';
-import notify from '../../hook/useToastify'
+
+import ProductCardHook from '../../hook/product/ProductCardHook';
 
 
 
 const ProductCard = ({item, favProd}) => {
 
-  const dispatch = useDispatch()
-
-  const [favImage, setFavImage] = useState(favoff)
-  const [loadingAdd, setLoadingAdd] = useState(true)
-
-  let Fav = favProd.some(fitem => fitem === item._id);
-  const [isFavProd, setIsFavProd] = useState(Fav)
-  
-
-  const handleFavBtn = () => {
-    if(isFavProd){
-      removeFromWishlistData()
-    } else{
-      addWishlistData()
-    }
-    
-  }
-
-  useEffect(() => {
-    if(isFavProd === true) {
-      setFavImage(fav)
-    } else {
-      setFavImage(favoff)
-    }
-  }, [isFavProd])
-
-  const resAdd = useSelector(state => state.addToWishlistReducer.addWishlist)
-  const resRemoved = useSelector(state => state.addToWishlistReducer.removeFromWishlist)
-
-  const addWishlistData = async (e) => {
-    setIsFavProd(true)
-    setFavImage(fav)
-    setLoadingAdd(true)
-
-    await dispatch(addToWishListAction({
-      productId: item._id,
-  }))
-  setLoadingAdd(false)
-  }
-
-  const removeFromWishlistData = async (e) => {
-    await dispatch(removeFromWishListAction(item._id))
-  if(resRemoved && resRemoved.status === 200){
-    notify("The prodect removed to the wishlist", "succses")
-  }
-  setIsFavProd(false)
-  setFavImage(favoff)
-  }
-
-  useEffect(() => {
-    if(loadingAdd === false) {
-      if(resAdd && resAdd.status === "succses"){
-        notify("The prodect added to the wishlist", "succses")
-      }
-    }
-  }, [loadingAdd])
+  const [addWishlistData, removeFromWishlistData, handleFavBtn, favImage] = ProductCardHook(item, favProd)
 
 
 

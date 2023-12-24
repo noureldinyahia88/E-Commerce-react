@@ -4,33 +4,12 @@ import ProductCard from './ProductCard';
 import { Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllWishListAction } from '../../redux/actions/addWishListAction';
+import CardProductContainerHook from '../../hook/product/CardProductContainerHook';
 
 const CardProductContainer = ({ title,btntitle,pathText, products}) => {
 
-  const dispatch = useDispatch()
-  const [loading, setLoading] = useState(false)
-  const [favProd, setFavProd] = useState([])
-
-
-  const res = useSelector(res => res.addToWishlistReducer.getWishlist)
-
-  useEffect(()=>{
-    const get = async () =>{
-      setLoading(true)
-    await  dispatch(getAllWishListAction())
-    setLoading(false)
-    } 
-    get()
-  }, [])
-
-  useEffect(()=>{
-    if(loading === false){
-      if(res.data){
-        console.log(res.data.map(item => item._id));
-        setFavProd(res.data.map(item => item._id))
-      }
-    }
-  }, [])
+  const [favProd] = CardProductContainerHook()
+  
   return (
     <Container>
       {products ? (<SubTitle  title={title} btnTitle={btntitle}  pathText={pathText}/>): null}

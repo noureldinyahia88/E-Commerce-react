@@ -27,6 +27,7 @@ const NavbarLogin = () => {
     // const res = useSelector(state => state.authReducer.currentUser)
     const logOut = () => {
         localStorage.removeItem("user")
+        localStorage.removeItem("token")
         setUser('')
     }
 
